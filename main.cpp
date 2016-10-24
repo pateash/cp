@@ -71,7 +71,7 @@ void solve(){
 
 int main()
 {
- /* if(
+  if(
       freopen("C:\\Users\\ashish_patel\\Documents\\CodeBlocks Project\\Sample\\in.txt","r",stdin)
       &&
       freopen("C:\\Users\\ashish_patel\\Documents\\CodeBlocks Project\\Sample\\out.txt", "w", stdout)
@@ -80,5 +80,9 @@ int main()
      cout << "ERROR: " << strerror(errno) << endl;
      exit(0);
     }
-*/
+    read(t);
+    while(t--){
+        solve();
+    }
+
 }
