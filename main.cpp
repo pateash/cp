@@ -27,6 +27,8 @@
 #define readl(n) ll n;scl(n)
 #define readf(n) float n;scf(n)
 #define readd(n) double d;scd(n)
+#define call(c) (c).begin(),(c).end()
+
 using namespace std;
 template <typename T>
 void show_2d(T container){
@@ -72,15 +74,16 @@ void solve(){
 int main()
 {
   if(
-      freopen("C:\\Users\\ashish_patel\\Documents\\CodeBlocks Project\\Sample\\in.txt","r",stdin)
+      freopen("/media/ashish/Windows/Users/ashish_patel/Documents/CodeBlocks Project/Sample/in.txt","r",stdin)
       &&
-      freopen("C:\\Users\\ashish_patel\\Documents\\CodeBlocks Project\\Sample\\out.txt", "w", stdout)
+      freopen("/media/ashish/Windows/Users/ashish_patel/Documents/CodeBlocks Project/Sample/out.txt", "w", stdout)
       );
      else {
      cout << "ERROR: " << strerror(errno) << endl;
      exit(0);
     }
-    read(t);
+
+      read(t);
     while(t--){
         solve();
     }
