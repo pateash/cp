@@ -67,6 +67,22 @@ void show_arr(T arr[],int size){
     cout<<endl;
 }
 
+template<typename T>
+void show_graph(T AdjList){
+	cout<<"-----------"<<endl;
+
+	cout<<"showing graph"<<endl;
+int i=0;
+	for(auto v: AdjList){
+		cout<<i++;
+		for(auto e:v){
+			cout<<"->"<<"["<<e.first<<","<<e.second<<"]";
+		}
+		cout<<endl;
+	}
+	cout<<"-----------"<<endl;
+}
+
 void solve(){
 }
 
