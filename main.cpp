@@ -27,6 +27,7 @@
 #define readl(n) ll n;scl(n)
 #define readf(n) float n;scf(n)
 #define readd(n) double d;scd(n)
+#define call(c) (c).begin(),(c).end()
 //debug
 #define show(a) std::cout<<#a<<" : "<<a<<std::endl;
 
@@ -67,6 +68,23 @@ void show_arr(T arr[],int size){
         cout<<arr[i]<<" ";
     cout<<endl;
 }
+
+template<typename T>
+void show_graph(T AdjList){
+    cout<<"-----------"<<endl;
+
+    cout<<"showing graph"<<endl;
+    int i=0;
+    for(auto v: AdjList){
+        cout<<i++;
+        for(auto e:v){
+            cout<<"->"<<"["<<e.first<<","<<e.second<<"]";
+        }
+        cout<<endl;
+    }
+    cout<<"-----------"<<endl;
+}
+
 void test_working(){
     string string1;
     cin>>string1;
@@ -90,5 +108,9 @@ int main()
      exit(0);
     }
     test_working();
+    read(t);
+    while(t--){
+        solve();
+    }
    return 0;
 }
