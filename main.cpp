@@ -27,6 +27,9 @@
 #define readl(n) ll n;scl(n)
 #define readf(n) float n;scf(n)
 #define readd(n) double d;scd(n)
+//debug
+#define show(a) std::cout<<#a<<" : "<<a<<std::endl;
+
 using namespace std;
 template <typename T>
 void show_2d(T container){
@@ -64,21 +67,28 @@ void show_arr(T arr[],int size){
         cout<<arr[i]<<" ";
     cout<<endl;
 }
-
+void test_working(){
+    string string1;
+    cin>>string1;
+    cout<<string1;
+  exit(EXIT_SUCCESS);
+}
 void solve(){
 }
 
 
 int main()
 {
- /* if(
-      freopen("C:\\Users\\ashish_patel\\Documents\\CodeBlocks Project\\Sample\\in.txt","r",stdin)
+    string curdir="/home/ashish/Documents/code/";
+  if(
+      freopen(string(curdir+"in.txt").c_str(),"r",stdin)
       &&
-      freopen("C:\\Users\\ashish_patel\\Documents\\CodeBlocks Project\\Sample\\out.txt", "w", stdout)
+      freopen(string(curdir+"out.txt").c_str(), "w", stdout)
       );
      else {
      cout << "ERROR: " << strerror(errno) << endl;
      exit(0);
     }
-*/
+    test_working();
+   return 0;
 }
