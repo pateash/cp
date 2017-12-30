@@ -72,7 +72,6 @@ void show_arr(T arr[],int size){
 template<typename T>
 void show_graph(T AdjList){
     cout<<"-----------"<<endl;
-
     cout<<"showing graph"<<endl;
     int i=0;
     for(auto v: AdjList){
@@ -88,13 +87,24 @@ void show_graph(T AdjList){
 void test_working(){
     string string1;
     cin>>string1;
-    cout<<string1;
+    cout<<"its working \nand first line input:"<<string1;
   exit(EXIT_SUCCESS);
 }
-void solve(){
+
+#define MOD int(1e9+7)
+ll power(int i,int c){
+	if(c==0) return 1;
+	if (c==1) {
+		return i;
+	}
+	ll ans=power(i,c/2);
+	if(c%2==1) ans=(ans*i)%MOD;
+	ans=(ans*ans)%MOD;
+	return ans;
 }
 
-
+void solve(){
+}
 int main()
 {
     string curdir="/home/ashish/Documents/code/";
@@ -107,10 +117,10 @@ int main()
      cout << "ERROR: " << strerror(errno) << endl;
      exit(0);
     }
-    test_working();
+   test_working();
     read(t);
     while(t--){
-        solve();
+
     }
    return 0;
 }

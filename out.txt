@@ -1,1 +1,2 @@
-ashish
+its working 
+and first line in input:2
