@@ -117,7 +117,7 @@ int main()
      cout << "ERROR: " << strerror(errno) << endl;
      exit(0);
     }
-   test_working();
+//   test_working();
     read(t);
     while(t--){
 
