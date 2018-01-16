@@ -99,8 +99,8 @@ ll power(int i,int c){
         return i;
     }
     ll ans=power(i,c/2);
-    if(c%2==1) ans=(ans*i)%MOD;
     ans=(ans*ans)%MOD;
+    if(c%2==1) ans=(ans*i)%MOD;
     return ans;
 }
 
