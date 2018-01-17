@@ -133,7 +133,7 @@ public:
                 par[x]=y;
                 setSize[y]+=setSize[x];
                 if(rank[x]==rank[y])
-                    rank[x]++;
+                    rank[y]++;
             }
            numsets--;
         }
