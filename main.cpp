@@ -147,6 +147,21 @@ public:
 };
 
 int main() {
+    string curdir="/home/ashish/Documents/code/";
+  if(
+      freopen(string(curdir+"in.txt").c_str(),"r",stdin)
+      &&
+      freopen(string(curdir+"out.txt").c_str(), "w", stdout)
+      );
+     else {
+     cout << "ERROR: " << strerror(errno) << endl;
+     exit(0);
+    }
+//    test_working();
+    read(t);
+    while(t--){
+        solve();
+    }
     return 0;
 }
 
