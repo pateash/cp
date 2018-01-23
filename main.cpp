@@ -85,24 +85,6 @@ void test_working(){
     exit(EXIT_SUCCESS);
 }
 
-
-//utility functions
-ll power(int i,int c){
-    if(c==0) return 1;
-    if (c==1) {
-        return i;
-    }
-    ll ans=power(i,c/2);
-    ans=(ans*ans)%MOD;
-    if(c%2==1) ans=(ans*i)%MOD;
-    return ans;
-}
-template<typename T> T mod(T x){ //this function return |x| value
-    return x<0? -x:x;
-}
-void solve(){
-}
-
 //utility classes
 class UnionFind{
     vi par,rank,setSize;
@@ -145,6 +127,25 @@ public:
         return setSize[i];
     }
 };
+
+//utility functions
+ll power(int i,int c){
+    if(c==0) return 1;
+    if (c==1) {
+        return i;
+    }
+    ll ans=power(i,c/2);
+    ans=(ans*ans)%MOD;
+    if(c%2==1) ans=(ans*i)%MOD;
+    return ans;
+}
+template<typename T> T mod(T x){ //this function return |x| value
+    return x<0? -x:x;
+}
+void solve(){
+}
+
+
 
 int main() {
     string curdir="/home/ashish/Documents/code/";
