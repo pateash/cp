@@ -30,7 +30,7 @@
 #define call(c) (c).begin(),(c).end()
 //debug
 #define show(a) std::cout<<#a<<" : "<<a<<std::endl;
-#define MOD int(1e9+7)
+
 using namespace std;
 
 //testing functions
@@ -81,7 +81,7 @@ template<typename T> void show_graph(T AdjList){
 void test_working(){
     string string1;
     cin>>string1;
-    cout<<"its working \nand first line input:"<<string1;
+    cout<<"its working and \nfirst line input:"<<string1;
     exit(EXIT_SUCCESS);
 }
 
@@ -117,7 +117,7 @@ public:
                 if(rank[x]==rank[y])
                     rank[y]++;
             }
-           numsets--;
+            numsets--;
         }
     }
     int numDisjointSets(){
@@ -129,12 +129,14 @@ public:
 };
 
 //utility functions
-ll power(int i,int c){
+ll power(int i,int c,int MOD){
     if(c==0) return 1;
     if (c==1) {
-        return i;
+        return i%MOD;
     }
-    ll ans=power(i,c/2);
+    /*ans is required long long, as ans*ans might get heavy
+     * before mod applied */
+    ll ans=power(i,c/2,MOD);
     ans=(ans*ans)%MOD;
     if(c%2==1) ans=(ans*i)%MOD;
     return ans;
@@ -147,21 +149,49 @@ template<typename T> T gcd(T a,T b){
     return gcd(b,a%b);
 }
 
-void solve(){
+
+//these will be used to store results for euclid's extendex algorithm
+int x,y,d;
+
+void extendedEuclid(int a,int b) {
+    if(b==0) {
+        d=a;
+        x=1;
+        y=0;
+        return;
+    }
+    extendedEuclid(b,a%b);
+    int x1=y;
+    int y1=x-(a/b)*y;
+    x=x1;
+    y=y1;
 }
+int modIFerm(int A,int M){
+    /*applying fermat's theorem A^-1=A^(M-2)%M
+     * applicable only when M is prime
+     * */
+    return power(A,M-2,M);
+}
+int modIEuclid(int A,int M){
+    /* applying extended euclid algo
+     * applicable only when A and M are co-prime ie. GCD(A,M)=1
+     * */
+    extendedEuclid(A,M);
+    return (x%M+M)%M;
+}
+void solve(){
 
-
-
+}
 int main() {
     string curdir="/home/ashish/Documents/code/";
-  if(
-      freopen(string(curdir+"in.txt").c_str(),"r",stdin)
-      &&
-      freopen(string(curdir+"out.txt").c_str(), "w", stdout)
-      );
-     else {
-     cout << "ERROR: " << strerror(errno) << endl;
-     exit(0);
+    if(
+            freopen(string(curdir+"in.txt").c_str(),"r",stdin)
+            &&
+            freopen(string(curdir+"out.txt").c_str(), "w", stdout)
+            );
+    else {
+        cout << "ERROR: " << strerror(errno) << endl;
+        exit(0);
     }
 //    test_working();
     clock_t t1=clock(),t2;
@@ -170,8 +200,6 @@ int main() {
         solve();
     }
     t2=clock();
-//   cout<<endl<<"time is "<<(t2-t1)/(1.0*CLOCKS_PER_SEC)<<" seconds"<<endl;
-
+    //   cout<<endl<<"time is "<<(t2-t1)/(1.0*CLOCKS_PER_SEC)<<" seconds"<<endl;
     return 0;
 }
-
