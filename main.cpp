@@ -159,10 +159,14 @@ int main() {
      exit(0);
     }
 //    test_working();
+    clock_t t1=clock(),t2;
     read(t);
     while(t--){
         solve();
     }
+    t2=clock();
+//   cout<<endl<<"time is "<<(t2-t1)/(1.0*CLOCKS_PER_SEC)<<" seconds"<<endl;
+
     return 0;
 }
 
