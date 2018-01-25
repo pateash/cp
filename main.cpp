@@ -178,6 +178,8 @@ int modIEuclid(int A,int M){
      * */
     extendedEuclid(A,M);
     return (x%M+M)%M;
+    //as x could be negative, first reduce it(even if negative)
+    //and then make it between [0,M-1] by taking modulo
 }
 void solve(){
 
