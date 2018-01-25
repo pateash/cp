@@ -1,0 +1,3 @@
+12
+its working 
+and first line input:2
