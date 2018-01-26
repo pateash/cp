@@ -1,4 +1,11 @@
 //
+// Created by ashish on 27/1/18.
+//
+
+#ifndef SAMPLE_MODARITHMETIC_H
+#define SAMPLE_MODARITHMETIC_H
+
+//
 // Created by ashish on 26/1/18.
 //
 #include<bits/stdc++.h>
@@ -48,3 +55,7 @@ int modIEuclid(int A,int M){
     //as x could be negative, first reduce it(even if negative)
     //and then make it between [0,M-1] by taking modulo
 }
+
+
+
+#endif //SAMPLE_MODARITHMETIC_H

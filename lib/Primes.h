@@ -1,6 +1,8 @@
 //
 // Created by ashish on 26/1/18.
 //
+#ifndef SAMPLE_PRIMES_H
+#define SAMPLE_PRIMES_H
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -53,8 +55,6 @@ public:
 
 };
 
-
-
 bool isPrimeSimple(int n){
     /*
      * return if a number is prime or not
@@ -67,3 +67,5 @@ bool isPrimeSimple(int n){
     }
     return true;
 }
+
+#endif

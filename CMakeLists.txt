@@ -5,9 +5,8 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
      main.cpp
-        Library/ModArithmetic.cpp
-        Library/OtherFunctions.cpp
-        Library/Primes.cpp
-        Library/UnionFind.cpp Library/SegmentTree.cpp)
+        lib/OtherFunctions.h
+        lib/Primes.h
+        lib/UnionFind.h lib/SegmentTree.h lib/ModArithmetic.h)
 
 add_executable(Sample ${SOURCE_FILES})

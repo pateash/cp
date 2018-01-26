@@ -1,6 +1,9 @@
 //
 // Created by ashish on 26/1/18.
 //
+#ifndef SAMPLE_OTHERFUNCTIONS_H
+#define SAMPLE_OTHERFUNCTIONS_H
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -26,3 +29,5 @@ long long  power(int i,int c){
     if(c%2==1) ans=(ans*i);
     return ans;
 }
+
+#endif

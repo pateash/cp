@@ -1,6 +1,8 @@
 //
 // Created by ashish on 26/1/18.
 //
+#ifndef SAMPLE_SEGMENTTREE_H
+#define SAMPLE_SEGMENTTREE_H
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -96,6 +98,7 @@ public:
      }
 };
 
+#endif
 
 
 //FOR TESTING
@@ -130,9 +133,6 @@ int main() {
 */
 
 //output
-//-------------
-//data in container is:
-//1 2 3 4 5 6 7 8 9 10
 //1
 //4
 //5

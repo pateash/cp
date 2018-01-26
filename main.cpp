@@ -90,6 +90,9 @@ void solve(){
 
 }
 
+#include "lib/UnionFind.h"
+
+//FOR TESTING
 int main() {
 
     string curdir = "/home/ashish/Documents/code/";
@@ -102,13 +105,26 @@ int main() {
         cout << "ERROR: " << strerror(errno) << endl;
         exit(0);
     }
-//    test_working();
-    clock_t t1=clock(),t2;
-    read(t);
-    while(t--){
-        solve();
-    }
-    t2=clock();
-    //   cout<<endl<<"time is "<<(t2-t1)/(1.0*CLOCKS_PER_SEC)<<" seconds"<<endl;
+
+    printf("Assume that there are 5 disjoint sets initially\n");
+    UnionFind UF(5); // create 5 disjoint sets
+    printf("%d\n", UF.numDisjointSets()); // 5
+    UF.unionSet(0, 1);
+    printf("%d\n", UF.numDisjointSets()); // 4
+    UF.unionSet(2, 3);
+    printf("%d\n", UF.numDisjointSets()); // 3
+    UF.unionSet(4, 3);
+    printf("%d\n", UF.numDisjointSets()); // 2
+    cout<<endl;
+    printf("isSameSet(0, 3) = %d\n", UF.isSameSet(0, 3)); // will return 0 (false)
+    printf("isSameSet(4, 3) = %d\n", UF.isSameSet(4, 3)); // will return 1 (true)
+    cout<<endl;
+    for (int i = 0; i < 5; i++) // findSet will return 1 for {0, 1} and 3 for {2, 3, 4}
+        printf("findSet(%d) = %d, sizeOfSet(%d) = %d\n", i, UF.findSet(i), i, UF.sizeOfSet(i));
+    UF.unionSet(0, 3);
+    printf("%d\n", UF.numDisjointSets()); // 1
+    for (int i = 0; i < 5; i++) // findSet will return 3 for {0, 1, 2, 3, 4}
+        printf("findSet(%d) = %d, sizeOfSet(%d) = %d\n", i, UF.findSet(i), i, UF.sizeOfSet(i));
+
     return 0;
 }

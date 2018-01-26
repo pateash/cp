@@ -1,6 +1,20 @@
-data in container is: 
-1 2 3 4 5 6 7 8 9 10 
-HELLO
-1
-4
+Assume that there are 5 disjoint sets initially
 5
+4
+3
+2
+
+isSameSet(0, 3) = 0
+isSameSet(4, 3) = 1
+
+findSet(0) = 1, sizeOfSet(0) = 2
+findSet(1) = 1, sizeOfSet(1) = 2
+findSet(2) = 3, sizeOfSet(2) = 3
+findSet(3) = 3, sizeOfSet(3) = 3
+findSet(4) = 3, sizeOfSet(4) = 3
+1
+findSet(0) = 3, sizeOfSet(0) = 5
+findSet(1) = 3, sizeOfSet(1) = 5
+findSet(2) = 3, sizeOfSet(2) = 5
+findSet(3) = 3, sizeOfSet(3) = 5
+findSet(4) = 3, sizeOfSet(4) = 5
