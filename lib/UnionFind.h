@@ -7,6 +7,7 @@
 using namespace std;
 
 class UnionFind{
+private:
     vector<int> par,rank,setSize;
     int numsets;
 public:

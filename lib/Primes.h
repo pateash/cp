@@ -12,11 +12,12 @@ using namespace std;
  */
 #define SIEVE_LIMIT int(1e7+10) //must be some greater than 'upperbound'
 class Sieve{
-public:
+private:
     long long _sieve_size; // size for bitset[0....upperbound] for storing 0/1
     bitset<SIEVE_LIMIT>bs; //10^7 should be enough for most cases _sieve_size<10^7
     vector<long long> primes;//storing all primes from [2..upperbound]
 
+public:
     Sieve(long long  upperbound){
         //building list of primes from [2..upperbound]
         _sieve_size=upperbound+1; //from 0 to upperbound
