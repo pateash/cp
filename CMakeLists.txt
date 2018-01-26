@@ -4,6 +4,10 @@ project(Sample)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
-     main.cpp)
+     main.cpp
+        Library/ModArithmetic.cpp
+        Library/OtherFunctions.cpp
+        Library/Primes.cpp
+        Library/UnionFind.cpp)
 
 add_executable(Sample ${SOURCE_FILES})
