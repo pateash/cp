@@ -12,3 +12,15 @@ template<typename T> T gcd(T a,T b){
     return gcd(b,a%b);
 }
 
+
+//O(log n) power function without mod
+ll power(int (i,int c){
+    if(c==0) return 1;
+    if (c==1) {
+        return i;
+    }
+    ll ans=power(i,c/2);
+    ans=(ans*ans);
+    if(c%2==1) ans=(ans*i);
+    return ans;
+}
