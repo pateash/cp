@@ -7,6 +7,9 @@ set(SOURCE_FILES
      main.cpp
         lib/OtherFunctions.h
         lib/Primes.h
-        lib/UnionFind.h lib/SegmentTree.h lib/ModArithmetic.h)
+        lib/UnionFind.h
+        lib/SegmentTree.h
+        lib/SegmentTreeLazy.h
+        lib/ModArithmetic.h)
 
 add_executable(Sample ${SOURCE_FILES})
