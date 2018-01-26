@@ -1,17 +1,20 @@
 //
 // Created by ashish on 26/1/18.
 //
+#include<bits/stdc++.h>
+using namespace std;
+
 
 //these will be used to store results for euclid's extendex algorithm
 int x,y,d;
-ll powerMod(int i,int c,int MOD){
+long long powerMod(int i,int c,int MOD){
     if(c==0) return 1;
     if (c==1) {
         return i%MOD;
     }
     /*ans is required long long, as ans*ans might get heavy
      * before mod applied */
-    ll ans=powerMod(i,c/2,MOD);
+    long long ans=powerMod(i,c/2,MOD);
     ans=(ans*ans)%MOD;
     if(c%2==1) ans=(ans*i)%MOD;
     return ans;

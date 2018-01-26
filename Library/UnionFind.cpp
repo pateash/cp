@@ -1,10 +1,12 @@
 //
 // Created by ashish on 26/1/18.
 //
+#include<bits/stdc++.h>
+using namespace std;
 
 class UnionFind{
 public:
-    vi par,rank,setSize;
+    vector<int> par,rank,setSize;
     int numsets;
     UnionFind(int n){
         par.assign(n,0);rank.assign(n,0);

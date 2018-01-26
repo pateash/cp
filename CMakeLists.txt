@@ -8,6 +8,6 @@ set(SOURCE_FILES
         Library/ModArithmetic.cpp
         Library/OtherFunctions.cpp
         Library/Primes.cpp
-        Library/UnionFind.cpp)
+        Library/UnionFind.cpp Library/SegmentTree.cpp)
 
 add_executable(Sample ${SOURCE_FILES})

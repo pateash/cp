@@ -31,7 +31,6 @@
 #define call(c) (c).begin(),(c).end()
 //debug
 #define show(a) std::cout<<#a<<" : "<<a<<std::endl;
-
 using namespace std;
 
 //testing functions

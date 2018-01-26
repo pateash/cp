@@ -1,2 +1,6 @@
-its working and 
-first line input:5
+data in container is: 
+1 2 3 4 5 6 7 8 9 10 
+HELLO
+1
+4
+5
