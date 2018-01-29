@@ -13,10 +13,12 @@ using namespace std;
  *   the idea is that we always update lazyness whenever we got any node,
  *   and propogate lazyness to its child and so on.
  */
-#define INVALID -999999
+#define INVALID -999999  //invalid will be something which can't be ther be there in segment tree
+#define LAZY_DEFAULT -1 //lazy default could be something which can't be there in lazy
+//INVALID will be used in query() to find which part is correct and not out of bound
+
 class SegmentTreeLazy{
     vector<int> st,lazy,A;
-    const int LAZY_DEFAULT=-1;
     int n;
     int left(int p){return p<<1;}
 
@@ -33,9 +35,12 @@ class SegmentTreeLazy{
     }
 
     int query(int p,int l,int r,int i,int j){
+        //TODO: ENHANCEMENT lazy updation could be added in a different function
         if(lazy[p]!=LAZY_DEFAULT){
             //yaha tak aaye to update kardo
             st[p]=(r-l+1)*lazy[p]; //this value will be when updated
+
+            //we have to check if it is not a leaf node
             if(l!=r)
                 lazy[left(p)]=lazy[right(p)]=lazy[p];
             lazy[p]=LAZY_DEFAULT;
@@ -43,6 +48,8 @@ class SegmentTreeLazy{
         if(i>r || j<l ) //case1
             return INVALID;
 
+        //In query we have to resolve only previous lazyness
+        //but in update we have to also do current query update with value
         if(i<=l && r<=j) //case2
             //lazyness already resolved we can return this
             return st[p];
@@ -56,10 +63,13 @@ class SegmentTreeLazy{
 
     }
 
+        //update  A[i..j] as value
     void update(int p,int l,int r, int i,int j,int value){
         if(lazy[p]!=LAZY_DEFAULT){
             //yaha tak aaye to update kardo
             st[p]=(r-l+1)*lazy[p]; //this value will be when updated
+
+            //we have to check if it is not a leaf node
             if(l!=r)
                 lazy[left(p)]=lazy[right(p)]=lazy[p];
             lazy[p]=LAZY_DEFAULT;
@@ -68,6 +78,7 @@ class SegmentTreeLazy{
         if(i>r || j<l ) return;  //case1
 
         if(i<=l && r<=j) {//case2
+            //IMP: lazy was of before, now we have to update a/c to current query
             st[p]=(r-l+1)*value; //update this node
             if(l!=r)  //pass lazyness to childs
                 lazy[left(p)]=lazy[right(p)]=value;
@@ -76,7 +87,8 @@ class SegmentTreeLazy{
         else{ //case3
             update(left(p),l,(l+r)/2,i,j,value);
             update(right(p),(l+r)/2+1,r,i,j,value);
-            st[p]=st[left(p)]+st[right(p)];//because we have updated
+            st[p]=st[left(p)]+st[right(p)];
+            //because we have updated we have to recollect
         }
     }
 
@@ -94,6 +106,7 @@ public:
         return query(1,0,n-1,i,j);
     }
     void update(int i,int j,int value){
+        //update  A[i..j] as value
         update(1,0,n-1,i,j,value);
     }
 };
@@ -138,23 +151,29 @@ public:
     }
     return 0;
 }
- */
+*/
 
 /*
- * INPUT
-    5
-    1 2 3 4 5
-    5
-    0 1 3
-    1 1 3 6
-    0 1 3
-    1 2 4 3
-    0 2 3
+INPUT
+5
+1 2 3 4 5
+8
+0 1 3
+0 0 4
+1 1 3 6
+0 1 3
+1 2 4 3
+0 2 3
+0 1 3
+0 0 4
 
-    OUTPUT
-      9
-      18
-      6
+OUTPUT
+9
+15
+18
+6
+12
+16
 
  */
 #endif
