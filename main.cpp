@@ -16,7 +16,7 @@
 #define sc(n)  scanf("%d",&n)
 #define scl(n) scanf("%lld",&n)
 #define scf(n) scanf("%f",&n)
-#define scd(n) scanf("%f",&n)
+#define scd(n) scanf("%lf",&n)
 //function and loops
 #define mp make_pair
 #define repab(a,b) for(int i=(a);i<(b);i++)
@@ -27,7 +27,7 @@
 #define read(n) int n;sc(n)
 #define readl(n) ll n;scl(n)
 #define readf(n) float n;scf(n)
-#define readd(n) double d;scd(n)
+#define readd(n) double n;scd(n)
 #define call(c) (c).begin(),(c).end()
 //debug
 #define show(a) std::cout<<#a<<" : "<<a<<std::endl;
