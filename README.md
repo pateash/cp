@@ -1,6 +1,6 @@
-#competetive coding notes
+# competetive coding notes
 
-##memset
+## memset
 memset(pointer,value,size) do not work always for setting values,
 
 - for integer arrays it can only set **values= 0 or -1** , so 1 will not work
