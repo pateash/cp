@@ -129,8 +129,8 @@ void dfs(int index){
     }
 //    show_pair1d(dfs_arr);
 }
-int graph_coloring(){
-    dfs(0);
+int graph_coloring(int start){
+    dfs(start);
     int n=adjMat.size();
     color_set.assign(n,0);
 
@@ -195,7 +195,12 @@ int main() {
                 sc(adjMat[i][j]);
             }
         }
-        int num_colors=graph_coloring();
+     int num_colors=INT_MAX;
+
+    //try to find out num_colors starting from each vertex
+    for (int l = 0; l <v ; ++l) {
+        num_colors=min(num_colors,graph_coloring(l));
+    }
         if(c!=num_colors){
             cout<<"TEST CASE #"<<k+1<<" FAILED"<<endl;
             show_pair1d(dfs_arr);
