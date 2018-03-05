@@ -1,18 +1,31 @@
-num colors:3
-TEST CASE #1 PASSED
---------------------
-num colors:4
-TEST CASE #2 PASSED
---------------------
-num colors:3
-TEST CASE #3 PASSED
---------------------
-num colors:3
-TEST CASE #4 PASSED
---------------------
-num colors:4
-TEST CASE #5 PASSED
---------------------
-num colors:5
-TEST CASE #6 PASSED
---------------------
+num colors:8
+TEST CASE #1 FAILED
+0 --> 0
+1 --> 24
+2 --> 23
+3 --> 22
+4 --> 21
+5 --> 20
+6 --> 16
+7 --> 19
+8 --> 18
+9 --> 17
+10 --> 15
+11 --> 11
+12 --> 14
+13 --> 13
+14 --> 12
+15 --> 10
+16 --> 6
+17 --> 9
+18 --> 8
+19 --> 7
+20 --> 5
+21 --> 1
+22 --> 4
+23 --> 3
+24 --> 2
+
+
+colors assigned are as follows
+0 1 0 2 3 4 0 2 3 1 5 2 0 4 5 1 4 5 1 0 3 1 3 6 7 

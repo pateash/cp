@@ -184,9 +184,9 @@ int main() {
         cout << "ERROR: " << strerror(errno) << endl;
         exit(0);
     }
-//    printGraph();
-    read(t);
-    for (int k = 0; k <t ; ++k) {
+//    read(t);
+//    for (int k = 0; k <t ; ++k) {
+  int k=0;//for removing error
         read(v);
         read(c);//chromatic number in reality
         adjMat.resize(v, vi(v, 0));
@@ -195,7 +195,6 @@ int main() {
                 sc(adjMat[i][j]);
             }
         }
-//        show_2d(adjMat);
         int num_colors=graph_coloring();
         if(c!=num_colors){
             cout<<"TEST CASE #"<<k+1<<" FAILED"<<endl;
@@ -211,6 +210,7 @@ int main() {
         dfs_arr.clear();
         color_set.clear();
         cout << "--------------------" << endl;
-    }
+
+//    } //end of test case
     return 0;
 }
