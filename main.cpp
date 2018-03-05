@@ -53,7 +53,6 @@ template <typename T,typename R> void show_pair(pair<T,R> p){
     cout<<p.first<<"-> "<<p.second<<endl;
 }
 template <typename T> void show_1d(T &container){
-    cout<<"data in container is: "<<endl;
     for(auto it=container.begin();it!=container.end();it++){
         cout<<*it<<" ";
     }
@@ -85,9 +84,92 @@ void test_working(){
     exit(EXIT_SUCCESS);
 }
 
+void printGraph(){
+    //this function will be used to get proper format show that we can put that in to input file
+    vector<vi>G={{0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0}, {1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0},
+                 {0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0}, {1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0},
+                 {0, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0}, {0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
+                 {1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1}, {0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1},
+                 {1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1}, {0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1},
+                 {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0}};
 
-void solve(){
+    show_2d(G);
+    int vCount=G.size();
+    int eCount=0;
+    rep(vCount){
+        repi(j,vCount){
+            if(G[i][j]==1) {
+                eCount++;
+            }
+        }
+    }
+    cout<<"v="<<vCount<<","<<"e="<<eCount<<endl;
+}
 
+vector<vi>adjMat;
+vii dfs_arr;
+vi color_set;
+
+void dfs(int index){
+    vector<bool>visited(adjMat.size());
+    stack<int>s;
+    s.push(index);
+    int count=0;
+    while(!s.empty()){
+        int i=s.top();s.pop();
+        if(!visited[i]) {
+            dfs_arr.push_back(ii(count++, i));
+            visited[i] = true;
+        }
+        for (int j = 0; j < adjMat.size(); ++j) {
+            if(adjMat[i][j]==1 && visited[j]==false){
+                s.push(j);
+            }
+        }
+    }
+//    show_pair1d(dfs_arr);
+}
+int graph_coloring(){
+    dfs(0);
+    int n=adjMat.size();
+    color_set.assign(n,0);
+
+    rep(n) color_set[i]=i; //initially assign a different color to every body
+
+    //for dfs_arr, applying algorithm
+    for(int i=0;i<color_set.size();i++){
+        int actualNode=dfs_arr[i].second;
+//        cout<<"for "<<actualNode;
+        vi colorTaken(n,false);//let noone is taken
+
+        for(int j=0;j<i;j++){//for all those having smaller indexes
+            int actualNeighbour=dfs_arr[j].second;
+            int neighbourColor=color_set[j];
+//            cout<<"for actual Neighbour"<<actualNeighbour
+            if(adjMat[actualNode][actualNeighbour]==1){//if both are connected
+                colorTaken[neighbourColor]=true;
+
+            }
+        }
+
+        //assigning first color from color set
+        for (int j = 0; j <colorTaken.size() ; ++j) {
+            if(colorTaken[j]==false){
+                color_set[i]=j;//color of ith willbe 'j'
+//                cout<<" -> "<<j<<endl;
+                break;//go for next node from dfs_num
+            }
+        }
+    }
+
+    int colorCount=0;
+
+    vi temp_color_set=color_set;
+    sort(call(temp_color_set));
+    auto it=unique(call(temp_color_set));
+    int num_colors=distance(temp_color_set.begin(),it);
+    cout<<"num colors:"<<num_colors<<endl;
+    return num_colors;
 }
 
 int main() {
@@ -102,13 +184,33 @@ int main() {
         cout << "ERROR: " << strerror(errno) << endl;
         exit(0);
     }
-//    test_working();
-//    clock_t t1=clock(),t2;
+//    printGraph();
     read(t);
-    while(t--){
-        solve();
+    for (int k = 0; k <t ; ++k) {
+        read(v);
+        read(c);//chromatic number in reality
+        adjMat.resize(v, vi(v, 0));
+        repi(i, v) {
+            repi(j, v) {
+                sc(adjMat[i][j]);
+            }
+        }
+//        show_2d(adjMat);
+        int num_colors=graph_coloring();
+        if(c!=num_colors){
+            cout<<"TEST CASE #"<<k+1<<" FAILED"<<endl;
+            show_pair1d(dfs_arr);
+            cout<<endl<<"colors assigned are as follows\n";
+            show_1d(color_set);
+        }
+        assert(num_colors==c);
+        cout<<"TEST CASE #"<<k+1<<" PASSED"<<endl;
+
+        //clear for next test case
+        adjMat.clear();
+        dfs_arr.clear();
+        color_set.clear();
+        cout << "--------------------" << endl;
     }
-//    t2=clock();
-    //   cout<<endl<<"time is "<<(t2-t1)/(1.0*CLOCKS_PER_SEC)<<" seconds"<<endl;
     return 0;
 }

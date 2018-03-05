@@ -1,3 +1,18 @@
-9
-18
-6
+num colors:3
+TEST CASE #1 PASSED
+--------------------
+num colors:4
+TEST CASE #2 PASSED
+--------------------
+num colors:3
+TEST CASE #3 PASSED
+--------------------
+num colors:3
+TEST CASE #4 PASSED
+--------------------
+num colors:4
+TEST CASE #5 PASSED
+--------------------
+num colors:5
+TEST CASE #6 PASSED
+--------------------
