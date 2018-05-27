@@ -1,4 +1,14 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<cstdio>
+#include <cmath>
+#include<cstring>
+#include<algorithm>
+#include<vector>
+#include<list>
+#include<map>
+#include<set>
+#include<unordered_map>
+#include<unordered_set>
 //types
 #define llu long long unsigned int
 #define ll long long int
@@ -92,7 +102,7 @@ void solve(){
 
 int main() {
 
-    string curdir = "/home/ashish/Documents/code/";
+    string curdir = "/Users/ashish/Desktop/code/";
     if (
             freopen(string(curdir + "in.txt").c_str(), "r", stdin)
             &&
@@ -102,7 +112,7 @@ int main() {
         cout << "ERROR: " << strerror(errno) << endl;
         exit(0);
     }
-//    test_working();
+    test_working();
 //    clock_t t1=clock(),t2;
     read(t);
     while(t--){
