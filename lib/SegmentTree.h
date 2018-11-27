@@ -130,7 +130,7 @@ public:
     SegmentTree(vector<int> &A){
         this->A=A;
         this->n=A.size();
-        st.resize(4*n,-1);//-1 represent nothing as we are storing indexes
+        st.resize(4*n,-1);//-1 represent nothing
         this->build(1,0,n-1);
 //        show_1d(st);
     }
