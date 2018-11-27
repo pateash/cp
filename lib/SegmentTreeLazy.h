@@ -78,10 +78,10 @@ class SegmentTreeLazy{
         build(right(p),(l+r)/2+1,r);
         st[p]=st[left(p)]+st[right(p)];
     }
-
-    int query(int p,int l,int r,int i,int j){
-        //TODO: ENHANCEMENT lazy updation could be added in a different function
-        if(lazy[p]!=LAZY_DEFAULT){
+    
+    //this function will do lazy update when we reach at that node in segment tree in query or update
+    void lazy_update(int p,int l,int r){
+         if(lazy[p]!=LAZY_DEFAULT){
             //yaha tak aaye to update kardo
             st[p]=(r-l+1)*lazy[p]; //this value will be when updated
 
@@ -90,6 +90,12 @@ class SegmentTreeLazy{
                 lazy[left(p)]=lazy[right(p)]=lazy[p];
             lazy[p]=LAZY_DEFAULT;
         }
+    }
+
+    int query(int p,int l,int r,int i,int j){
+        //update the lazy_tree, if we have arrived here
+        lazy_update(p,l,r);
+        
         if(i>r || j<l ) //case1
             return INVALID;
 
@@ -110,15 +116,8 @@ class SegmentTreeLazy{
 
         //update  A[i..j] as value
     void update(int p,int l,int r, int i,int j,int value){
-        if(lazy[p]!=LAZY_DEFAULT){
-            //yaha tak aaye to update kardo
-            st[p]=(r-l+1)*lazy[p]; //this value will be when updated
-
-            //we have to check if it is not a leaf node
-            if(l!=r)
-                lazy[left(p)]=lazy[right(p)]=lazy[p];
-            lazy[p]=LAZY_DEFAULT;
-        }
+         //update the lazy_tree, if we have arrived here
+         lazy_update(p,l,r);
 
         if(i>r || j<l ) return;  //case1
 
