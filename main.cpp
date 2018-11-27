@@ -115,7 +115,8 @@ int main() {
         cout << "ERROR: " << strerror(errno) << endl;
         exit(0);
     }
-    test_working();
+
+//    test_working();
 //    clock_t t1=clock(),t2;
     read(t);
     while(t--){
