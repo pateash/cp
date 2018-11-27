@@ -54,17 +54,29 @@ using namespace std;
 class UnionFind{
 private:
     vector<int> par,rank,setSize;
+    /*
+     * par - parent array, par[i] store top most known parent of set in which 'i' is present
+     * rank - rank[i] height of the tree
+     * setSize - setSize[i] is number of elements in the set having 'i'
+     */
     int numsets;
 public:
     UnionFind(int n){
-        par.assign(n,0);rank.assign(n,0);
+        par.assign(n,0); //will assign it to themself as their parent
+        for(int i=0;i<n;i++) par[i]=i;
+
+        rank.assign(n,0);// initially all have 0 height
         setSize.assign(n,1);
         numsets=n;
-        for(int i=0;i<n;i++) par[i]=i;
     }
     bool isSameSet(int i,int j){
         return findSet(i)==findSet(j);
     }
+
+    /*
+     * returns the top most parent(root) of tree having 'i', because each set is
+     * represented by it's root
+     */
     int findSet(int i){
         return par[i]==i?i:par[i]=findSet(par[i]);
     }
@@ -72,14 +84,14 @@ public:
         if(!isSameSet(i,j)){
             int x=findSet(i);
             int y=findSet(j);
-            if(rank[x]>rank[y]) {
+            if(rank[x]>rank[y]) { // if height of x is greater than y
                 par[y] = x;
                 setSize[x]+=setSize[y];
             }
             else{
                 par[x]=y;
                 setSize[y]+=setSize[x];
-                if(rank[x]==rank[y])
+                if(rank[x]==rank[y]) //if height of both is same then height of one will increase
                     rank[y]++;
             }
             numsets--;
