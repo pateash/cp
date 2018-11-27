@@ -124,6 +124,8 @@ class SegmentTreeLazy{
 
         if(i<=l && r<=j) {//case2
             //IMP: lazy was of before, now we have to update a/c to current query
+            // we can't do just lazy[p]=value, here because when we go back we have to provide correct value to parents,
+            // as they have lazy[p]=LAZY_DEFAULT 
             st[p]=(r-l+1)*value; //update this node
             if(l!=r)  //pass lazyness to childs
                 lazy[left(p)]=lazy[right(p)]=value;
