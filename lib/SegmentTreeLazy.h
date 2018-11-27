@@ -50,7 +50,6 @@
 //debug
 #define show(a) std::cout<<#a<<" : "<<a<<std::endl;
 using namespace std;
-using namespace std;
 
 //RANGE SUM QUERY WITH LAZY SEGMENT TREE
 //update(i,j) update all values from [i,j] by value;

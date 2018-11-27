@@ -50,7 +50,6 @@
 //debug
 #define show(a) std::cout<<#a<<" : "<<a<<std::endl;
 using namespace std;
-using namespace std;
 
 //RANGE MIN QUERY WITH SIMPLE SEGMENT TREE
 

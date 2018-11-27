@@ -50,7 +50,6 @@
 //debug
 #define show(a) std::cout<<#a<<" : "<<a<<std::endl;
 using namespace std;
-using namespace std;
 
 class UnionFind{
 private:

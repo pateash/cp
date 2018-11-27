@@ -55,7 +55,6 @@
 //debug
 #define show(a) std::cout<<#a<<" : "<<a<<std::endl;
 using namespace std;
-using namespace std;
 
 
 //these will be used to store results for euclid's extendex algorithm
