@@ -15,6 +15,7 @@
 //types
 #define llu long long unsigned int
 #define ll long long int
+#define llu long long unsigned int
 //container
 #define vi vector<int>
 #define vl vector<ll>
@@ -27,7 +28,8 @@
 #define nl printf("\n")
 #define sp printf(" ")
 #define sc(n)  scanf("%d",&n)
-#define scl(n) scanf("%lld",&n)
+#define scll(n) scanf("%lld",&n)
+#define scllu(n) scanf("%llu",&n)
 #define scf(n) scanf("%f",&n)
 #define scd(n) scanf("%lf",&n)
 //function and loops
@@ -38,7 +40,8 @@
 #define repit(c) for(auto it=(c).begin();it!=(c).end();it++)
 //reading all once
 #define read(n) int n;sc(n)
-#define readl(n) ll n;scl(n)
+#define readll(n) ll n;scll(n)
+#define readllu(n) llu n;scllu(n)
 #define readf(n) float n;scf(n)
 #define readd(n) double n;scd(n)
 #define call(c) (c).begin(),(c).end()
