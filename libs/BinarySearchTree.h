@@ -1,7 +1,7 @@
 #ifndef SAMPLE_BINARY_SEARCH_TREE_H
 #define SAMPLE_BINARY_SEARCH_TREE_H
 
-#include "libs/CommonLibs.h"
+#include "CommonLibs.h"
 
 /*
  * Node Declaration
@@ -42,7 +42,7 @@ int main()
     int choice, num;
     BST bst;
     node *temp;
-    while (1)
+    while (true)
     {
         cout<<"-----------------"<<endl;
         cout<<"Operations on BST"<<endl;
