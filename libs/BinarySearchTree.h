@@ -31,7 +31,7 @@ class BST
         void display(node *, int);
         BST()
         {
-            root = NULL;
+            root = nullptr;
         }
 };
 /*
@@ -64,7 +64,7 @@ int main()
 	    cin>>temp->info;
             bst.insert(root, temp);
         case 2:
-            if (root == NULL)
+            if (root == nullptr)
             {
                 cout<<"Tree is empty, nothing to delete"<<endl;
                 continue;
@@ -107,16 +107,16 @@ int main()
 void BST::find(int item, node **par, node **loc)
 {
     node *ptr, *ptrsave;
-    if (root == NULL)
+    if (root == nullptr)
     {
-        *loc = NULL;
-        *par = NULL;
+        *loc = nullptr;
+        *par = nullptr;
         return;
     }
     if (item == root->info)
     {
         *loc = root;
-        *par = NULL;
+        *par = nullptr;
         return;
     }
     if (item < root->info)
@@ -124,7 +124,7 @@ void BST::find(int item, node **par, node **loc)
     else
         ptr = root->right;
     ptrsave = root;
-    while (ptr != NULL)
+    while (ptr != nullptr)
     {
         if (item == ptr->info)
         {
@@ -138,7 +138,7 @@ void BST::find(int item, node **par, node **loc)
 	else
 	    ptr = ptr->right;
     }
-    *loc = NULL;
+    *loc = nullptr;
     *par = ptrsave;
 }
 
@@ -147,12 +147,12 @@ void BST::find(int item, node **par, node **loc)
  */
 void BST::insert(node *tree, node *newnode)
 {
-    if (root == NULL)
+    if (root == nullptr)
     {
         root = new node;
         root->info = newnode->info;
-        root->left = NULL;
-        root->right = NULL;
+        root->left = nullptr;
+        root->right = nullptr;
         cout<<"Root Node is Added"<<endl;
         return;
     }
@@ -163,30 +163,30 @@ void BST::insert(node *tree, node *newnode)
     }
     if (tree->info > newnode->info)
     {
-        if (tree->left != NULL)
+        if (tree->left != nullptr)
         {
             insert(tree->left, newnode);
 	}
 	else
 	{
             tree->left = newnode;
-            (tree->left)->left = NULL;
-            (tree->left)->right = NULL;
+            (tree->left)->left = nullptr;
+            (tree->left)->right = nullptr;
             cout<<"Node Added To Left"<<endl;
             return;
         }
     }
     else
     {
-        if (tree->right != NULL)
+        if (tree->right != nullptr)
         {
             insert(tree->right, newnode);
         }
         else
         {
             tree->right = newnode;
-            (tree->right)->left = NULL;
-            (tree->right)->right = NULL;
+            (tree->right)->left = nullptr;
+            (tree->right)->right = nullptr;
             cout<<"Node Added To Right"<<endl;
             return;
         }
@@ -199,24 +199,24 @@ void BST::insert(node *tree, node *newnode)
 void BST::del(int item)
 {
     node *parent, *location;
-    if (root == NULL)
+    if (root == nullptr)
     {
         cout<<"Tree empty"<<endl;
         return;
     }
     find(item, &parent, &location);
-    if (location == NULL)
+    if (location == nullptr)
     {
         cout<<"Item not present in tree"<<endl;
         return;
     }
-    if (location->left == NULL && location->right == NULL)
+    if (location->left == nullptr && location->right == nullptr)
         case_a(parent, location);
-    if (location->left != NULL && location->right == NULL)
+    if (location->left != nullptr && location->right == nullptr)
         case_b(parent, location);
-    if (location->left == NULL && location->right != NULL)
+    if (location->left == nullptr && location->right != nullptr)
         case_b(parent, location);
-    if (location->left != NULL && location->right != NULL)
+    if (location->left != nullptr && location->right != nullptr)
         case_c(parent, location);
     free(location);
 }
@@ -226,16 +226,16 @@ void BST::del(int item)
  */
 void BST::case_a(node *par, node *loc )
 {
-    if (par == NULL)
+    if (par == nullptr)
     {
-        root = NULL;
+        root = nullptr;
     }
     else
     {
         if (loc == par->left)
-            par->left = NULL;
+            par->left = nullptr;
         else
-            par->right = NULL;
+            par->right = nullptr;
     }
 }
 
@@ -245,11 +245,11 @@ void BST::case_a(node *par, node *loc )
 void BST::case_b(node *par, node *loc)
 {
     node *child;
-    if (loc->left != NULL)
+    if (loc->left != nullptr)
         child = loc->left;
     else
         child = loc->right;
-    if (par == NULL)
+    if (par == nullptr)
     {
         root = child;
     }
@@ -270,18 +270,18 @@ void BST::case_c(node *par, node *loc)
     node *ptr, *ptrsave, *suc, *parsuc;
     ptrsave = loc;
     ptr = loc->right;
-    while (ptr->left != NULL)
+    while (ptr->left != nullptr)
     {
         ptrsave = ptr;
         ptr = ptr->left;
     }
     suc = ptr;
     parsuc = ptrsave;
-    if (suc->left == NULL && suc->right == NULL)
+    if (suc->left == nullptr && suc->right == nullptr)
         case_a(parsuc, suc);
     else
         case_b(parsuc, suc);
-    if (par == NULL)
+    if (par == nullptr)
     {
         root = suc;
     }
@@ -301,12 +301,12 @@ void BST::case_c(node *par, node *loc)
  */
 void BST::preorder(node *ptr)
 {
-    if (root == NULL)
+    if (root == nullptr)
     {
         cout<<"Tree is empty"<<endl;
         return;
     }
-    if (ptr != NULL)
+    if (ptr != nullptr)
     {
         cout<<ptr->info<<"  ";
         preorder(ptr->left);
@@ -318,12 +318,12 @@ void BST::preorder(node *ptr)
  */
 void BST::inorder(node *ptr)
 {
-    if (root == NULL)
+    if (root == nullptr)
     {
         cout<<"Tree is empty"<<endl;
         return;
     }
-    if (ptr != NULL)
+    if (ptr != nullptr)
     {
         inorder(ptr->left);
         cout<<ptr->info<<"  ";
@@ -336,12 +336,12 @@ void BST::inorder(node *ptr)
  */
 void BST::postorder(node *ptr)
 {
-    if (root == NULL)
+    if (root == nullptr)
     {
         cout<<"Tree is empty"<<endl;
         return;
     }
-    if (ptr != NULL)
+    if (ptr != nullptr)
     {
         postorder(ptr->left);
         postorder(ptr->right);
@@ -355,7 +355,7 @@ void BST::postorder(node *ptr)
 void BST::display(node *ptr, int level)
 {
     int i;
-    if (ptr != NULL)
+    if (ptr != nullptr)
     {
         display(ptr->right, level+1);
         cout<<endl;
