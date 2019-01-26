@@ -1,3 +1,10 @@
+//
+// Created by ashish on 27/1/18.
+//
+
+#ifndef SAMPLE_COMMON_LIBS_H
+#define SAMPLE_COMMON_LIBS_H
+
 #include<iostream>
 #include<cstdio>
 #include <cmath>
@@ -94,38 +101,8 @@ template<typename T> void show_graph(T AdjList){
     }
     cout<<"-----------"<<endl;
 }
-void test_working(){
-    string string1;
-    cin>>string1;
-    cout<<"its working and \nfirst line input:"<<string1;
-    exit(EXIT_SUCCESS);
-}
+//debug
+#define show(a) std::cout<<#a<<" : "<<a<<std::endl;
+using namespace std;
 
-
-void solve(){
-
-}
-
-int main() {
-
-    string curdir = "/Users/ashish/Desktop/code/";
-    if (
-            freopen(string(curdir + "in.txt").c_str(), "r", stdin)
-            &&
-            freopen(string(curdir + "out.txt").c_str(), "w", stdout)
-            );
-    else {
-        cout << "ERROR: " << strerror(errno) << endl;
-        exit(0);
-    }
-
-//    test_working();
-//    clock_t t1=clock(),t2;
-    read(t);
-    while(t--){
-        solve();
-    }
-//    t2=clock();
-    //   cout<<endl<<"time is "<<(t2-t1)/(1.0*CLOCKS_PER_SEC)<<" seconds"<<endl;
-    return 0;
-}
+#endif
