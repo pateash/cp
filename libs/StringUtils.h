@@ -7,6 +7,20 @@
 /*works for vectors etc. also just change type*/
 class StringUtils{
 
+    static void generatePermutationUtils(int i, string &s){
+        /* if i has come to last of string*/
+        if(i==s.size()-1) {
+            cout<<s<<endl;
+            return;
+        }
+
+        for (int j = i; j < s.size(); ++j) {
+            swap(s[i],s[j]);
+            generatePermutationUtils(i+1,s);
+            swap(s[i],s[j]); //backtrack
+        }
+    }
+
 public:
      static void generateSubStrings(string &s){
 
@@ -21,7 +35,7 @@ public:
          }
     }
 
-      static void generateSubSequences(string &s){
+     static void generateSubSequences(string &s){
         /* total possible substring: 2^n ( one is empty) , O(2^n*n) */
          cout<<"following subSequences are there for: "<<s<<endl;
 
@@ -37,34 +51,39 @@ public:
              cout<<substr<<endl;
          }
     }
+
+     static void generateAllPermutations(string &s){
+        /* total possible permutations: !n, time complexity - O(n*n!)
+         * Algo link - https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/
+         * */
+         cout<<"following permutations are there for: "<<s<<endl;
+          generatePermutationUtils(0,s);
+        }
 };
 
-/*
  int main()
 {
-    string s="abcd";
+    string s="abc";
 
     StringUtils::generateSubStrings(s); // 10
     cout<<"------------"<<endl;
-    StringUtils::generateSubSequences(s);
 
+    StringUtils::generateSubSequences(s);
+    s="abc";
+    StringUtils::generateAllPermutations(s);
 }
- */
 
 /* OUTPUT
-following substrings are there for: abcd
+/Users/ashish/Desktop/code/cmake-build-debug/Sample
+following substrings are there for: abc
 a
 ab
 abc
-abcd
 b
 bc
-bcd
 c
-cd
-d
 ------------
-following subSequences are there for: abcd
+following subSequences are there for: abc
 
 a
 b
@@ -73,13 +92,12 @@ c
 ac
 bc
 abc
-d
-ad
-bd
-abd
-cd
-acd
-bcd
-abcd
+following permutations are there for: abc
+abc
+acb
+bac
+bca
+cba
+cab
  */
 #endif

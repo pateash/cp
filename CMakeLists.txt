@@ -14,6 +14,7 @@ set(SOURCE_FILES
         libs/ModArithmetic.h
         libs/Sorting.h
         libs/BinarySearchTree.h
+        libs/StringUtils.h
         )
 
 add_executable(Sample ${SOURCE_FILES})
