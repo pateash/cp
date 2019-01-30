@@ -36,7 +36,7 @@ void extendedEuclid(int a,int b) {
     y=y1;
 }
 
-int modIFerm(int A,int M){
+long long int modIFerm(int A, int M){
     /*applying fermat's theorem A^-1=A^(M-2)%M
      * applicable only when M is prime
      * */

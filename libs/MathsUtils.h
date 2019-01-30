@@ -1,8 +1,8 @@
 //
 // Created by ashish on 26/1/18.
 //
-#ifndef SAMPLE_OTHERFUNCTIONS_H
-#define SAMPLE_OTHERFUNCTIONS_H
+#ifndef SAMPLE_MATHSUTILS_H
+#define SAMPLE_MATHSUTILS_H
 
 #include "CommonLibs.h"
 
