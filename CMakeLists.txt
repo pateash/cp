@@ -15,6 +15,7 @@ set(SOURCE_FILES
         libs/Sorting.h
         libs/BinarySearchTree.h
         libs/StringUtils.h
+        libs/BitsUtils.h
         )
 
 add_executable(Sample ${SOURCE_FILES})
