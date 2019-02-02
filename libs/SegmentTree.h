@@ -8,8 +8,14 @@
 
 //RANGE MIN QUERY WITH SIMPLE SEGMENT TREE
 
+//find notes for segments tree in notes/
+
+#define INVALID -999999
+
 class SegmentTree{
+
 private:
+
     vector<int> st,A;
     int n;
     /*
@@ -21,8 +27,11 @@ private:
         return p<<1;
     }
     int right(int p){
+
+        // we can't do return p<<1+1; because of priority of << is less than +
         return (p<<1)+1;
     }
+
     void build(int p,int l,int r){
         if(l==r){
             st[p]=A[l];
@@ -31,32 +40,34 @@ private:
         build(left(p),l,(l+r)/2);
         build(right(p),(l+r)/2+1,r);
         st[p]=min(st[left(p)],st[right(p)]);
-        //we storing value as it works always , and index works only when we have to find single value
+        //we storing value as it works always( in all types of problems like range sum) , and index works only when we have to find single value
     }
+
     int rmq(int p,int l,int r,int i,int j){
         /* there are 3 total possibility of range occurance between two range
          *  1- [l-r] lies fully inside [i,j]
          *  2- [l-r] lies outside [i,j], either in left or right
          *  3- some part of [i,j] lies inside [l,r], in this case go breaking [l,r]
          *  so we can get full part
+         *  Note - i & j are never changing, only l and r are changing with each recursion
          */
-        if(r<i || l>j) return -1; //out or range
+        if(r<i || l>j) return INVALID; //out or range
         if(l>=i && r<=j) return st[p]; //this segment is inside what is required
 
         int min1= rmq(left(p),l,(l+r)/2,i,j);
         int min2= rmq(right(p),(l+r)/2+1,r,i,j);
-        if(min1==-1) return min2;
-        if(min2==-1) return min1;
-        //if both are not -1, return min
-        int ans=min(min1,min2);
-        return ans;
+        if(min1==INVALID) return min2;
+        if(min2==INVALID) return min1;
+        //if both are not INVALID, return min
+
+        return min(min1,min2);
     }
 
     void updateRange(int p,int l,int r,int i,int j,int value){
         //here we really updating value and not looking on lazy things etc.
         //we just update value and coming back we will just find min. of two childs
         // to get min again
-        if(r<i || l>j) //out of range
+        if( l>j || r<i ) //out of range
             return; //not thing has to be done
 
         /*
@@ -67,13 +78,18 @@ private:
          *         will never get updated, so either we have to rebuild it , which will take much more time(nlog(n)),
          *         or a better option to just go to every individual element and update it, in this way when we come
          *         upward we will automatically update our underlying tree.
-                NOTE - in lazy we are changind underlying st, when needed but that facility is not here.
+                NOTE - In lazy we are not changing underlying st[] and put here value in lazy[], but that facility is not here,
+                so we have to go to each element and update it and while coming back recurse to get new values.
+
+                here in place of  if(l>=i && r<=j) ( if fully inside)
+                we are going to each element and then updating
          */
 
-        if(l==r) {//only one element in range, and not of range means we have to update it
+        if(l==r) {
             st[p] = value; //so update
             return;
         }
+
         //if more than 1 element in this range and it is to be updated
         updateRange(left(p),l,(l+r)/2,i,j,value);
         updateRange(right(p),(l+r)/2+1,r,i,j,value);
@@ -84,7 +100,7 @@ public:
     SegmentTree(vector<int> &A){
         this->A=A;
         this->n=A.size();
-        st.resize(4*n,-1);//-1 represent nothing
+        st.resize(4*n,INVALID);//INVALID
         this->build(1,0,n-1);
 //        show_1d(st);
     }
@@ -106,7 +122,6 @@ public:
 
 
 //FOR TESTING
-/*
 int main() {
 
     string curdir = "/home/ashish/Documents/code/";
@@ -134,7 +149,6 @@ int main() {
     //   cout<<endl<<"time is "<<(t2-t1)/(1.0*CLOCKS_PER_SEC)<<" seconds"<<endl;
     return 0;
 }
-*/
 
 //output
 //1
