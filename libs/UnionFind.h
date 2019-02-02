@@ -33,8 +33,16 @@ public:
      * represented by it's root
      */
     int findSet(int i){
+
+        // if this is parent then return , otherwise call findSet() for paten
+        // we are also setting it to p[i] for compression which will eventually reduce no. of steps in findSet() and
+        // do not affect anything at all.
+
+
         return par[i]==i?i:par[i]=findSet(par[i]);
     }
+
+    /* merging is being done by rank(same as height of tree, calculate from leaf always) heuristic */
     void unionSet(int i,int j){
         if(!isSameSet(i,j)){
             int x=findSet(i);
@@ -46,6 +54,7 @@ public:
             else{
                 par[x]=y;
                 setSize[y]+=setSize[x];
+
                 if(rank[x]==rank[y]) //if height of both is same then height of one will increase
                     rank[y]++;
             }
@@ -64,10 +73,6 @@ public:
 #endif
 
 
-
-
-/*
-//FOR TESTING
 int main() {
 
     string curdir = "/home/ashish/Documents/code/";
@@ -103,7 +108,6 @@ int main() {
 
     return 0;
 }
-*/
 
 /*
 OUTPUT
