@@ -25,3 +25,6 @@ Total no. of nodes =` 1*(2^(ceil(Log2(n))+1) -1)/(2-1)` = `2^(ceil(Log2(n))+1) -
 (you need space in the array for each of the internal as well as leaf nodes which are this count in number), thus it is the array of size.
 
 `= O(4 * n)` approx..
+
+**Note -**
+ 1 extra is required as for St[], we have left st[0] as empty like heap.  
