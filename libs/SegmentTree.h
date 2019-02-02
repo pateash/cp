@@ -8,6 +8,8 @@
 
 //RANGE MIN QUERY WITH SIMPLE SEGMENT TREE
 
+//find notes for segments tree in notes/
+
 class SegmentTree{
 private:
     vector<int> st,A;

@@ -6,6 +6,8 @@
 
 #include "CommonLibs.h"
 
+//find notes for segments tree in notes/
+
 //RANGE SUM QUERY WITH LAZY SEGMENT TREE
 //update(i,j) update all values from [i,j] by value;
 /*
