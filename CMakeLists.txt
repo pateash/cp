@@ -17,6 +17,7 @@ set(SOURCE_FILES
         libs/StringUtils.h
         libs/BitsUtils.h
         libs/Graph.h
+        libs/Stack.h
         )
 
 add_executable(Sample ${SOURCE_FILES})
