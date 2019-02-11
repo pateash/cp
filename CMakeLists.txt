@@ -18,6 +18,7 @@ set(SOURCE_FILES
         libs/BitsUtils.h
         libs/Graph.h
         libs/Stack.h
+        libs/BinarySearchUtils.h
         )
 
 add_executable(Sample ${SOURCE_FILES})
