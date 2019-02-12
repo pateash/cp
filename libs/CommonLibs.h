@@ -53,6 +53,11 @@
 #define readf(n) float n;scf(n)
 #define readd(n) double n;scd(n)
 #define call(c) (c).begin(),(c).end()
+//constants
+
+#define INVALID -999
+#define INF int(1e9+1)
+
 //debug
 #define show(a) std::cout<<#a<<" : "<<a<<std::endl;
 using namespace std;
@@ -83,11 +88,29 @@ template <typename T> void show_1d(T &container){
     }
     cout<<endl;
 }
-template <typename  T> void show_arr(T arr[],int size){
+template <typename  T> void show_arr1d(T arr[],int size){
     cout<<"content in array is here"<<endl;
     for (int i = 0; i < size; ++i)
         cout<<arr[i]<<" ";
     cout<<endl;
+}
+
+/*
+    must call it from address as pointer
+    int a[10][10];
+    show_arr2d(&a, 10, 10);
+*/
+template <typename  T>
+void show_arr2d(T arr, int n, int m){
+
+    cout<<"content in array is here"<<endl;
+    for (int i = 0; i < n; ++i){
+        for (int j = 0; j < m ; ++j) {
+            cout<<*(*(*arr+i)+j)<<" ";
+        }
+        cout<<endl;
+    }
+
 }
 template<typename T> void show_graph(T AdjList){
     cout<<"-----------"<<endl;
