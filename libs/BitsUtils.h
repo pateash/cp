@@ -5,6 +5,34 @@
 
 class BitsUtils{
 
+    static int toggleBit(int n)
+    {
+        if (n == 0)
+            return 1;
+
+        // Make a copy of n as we are
+        // going to change it.
+        int i = n;
+
+        // Below steps set bits after
+        // MSB (including MSB)
+
+        // Suppose n is 273 (binary
+        // is 100010001). It does following
+        // 100010001 | 010001000 = 110011001
+        n |= n >> 1;
+
+        // This makes sure 4 bits
+        // (From MSB and including MSB)
+        // are set. It does following
+        // 110011001 | 001100110 = 111111111
+        n |= n >> 2;
+        n |= n >> 4;
+        n |= n >> 8;
+        n |= n >> 16;
+
+        return i ^ n;
+    }
 
 public:
     /* could be used as multiply by 2^N and floor*/
@@ -114,7 +142,19 @@ public:
         return  num & (N - 1);
     }
 
+    static int xnor(int num1, int num2){
+        // we can't do directly ~(x^y) as there are extra bits which makes it negative.
+//    https://www.geeksforgeeks.org/toggle-bits-significant-bit/
+//    https://www.geeksforgeeks.org/xnor-two-numbers/
 
+        // if num2 is greater then
+        // we swap this number in num1
+        if (num1 < num2)
+            swap(num1, num2);
+        num1 = toggleBit(num1);
+
+        return num1 ^ num2;
+    }
 };
 
 int main(){
@@ -150,6 +190,8 @@ int main(){
     assert(!BitsUtils::isPowerOf2(10));
 
     assert(BitsUtils::findModuloIfNisPowerOf2(10,4)==2);
+
+    assert(BitsUtils::xnor(7,5)==5 && BitsUtils::xnor(10,20)==1 && BitsUtils::xnor(10,50)==7 );
 }
 
 #endif
