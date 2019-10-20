@@ -29,4 +29,30 @@ long long  power(int i,int c){
     return ans;
 }
 
+long long factorial_recursive(int n){
+    if(n==1) return 1;
+    return n * factorial_recursive(n-1);
+}
+
+long long factorial_iterative(int n){
+    if(n==1 || n==0 ) return 1;
+    long long fact=1;
+    for(int i=2;i<=n;i++)
+        fact=fact*i;
+    return fact;
+}
+
+int main(){
+    assert(factorial_recursive(1)==1
+    && factorial_recursive(1)==0 
+    && factorial_recursive(4)==24
+       && factorial_recursive(6)==720);
+
+
+    assert(factorial_iterative(1)==1
+           && factorial_iterative(1)==0
+           && factorial_iterative(4)==24
+           && factorial_iterative(6)==720);
+}
+
 #endif
