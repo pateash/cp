@@ -1,5 +1,4 @@
 #include <iostream>
-#include<conio.h>
 #include<stdlib.h>
 #include<stdio.h>
 using namespace std;
@@ -14,8 +13,6 @@ struct node {
     }
 };
 
-void reverse();
-
 node* start= nullptr;
 
 void display(){
@@ -28,7 +25,7 @@ void display(){
     while(temp!= nullptr){
         cout<<temp->data;
         if(temp->next!=nullptr)
-        cout<<"->";
+            cout<<"->";
         temp=temp->next;
     }
     cout<<endl;
@@ -72,7 +69,7 @@ void del(int value){
         temp=temp->next;
     }
     if(flag) {
-     cout<<"deleted: "<<value<<endl;
+        cout<<"deleted: "<<value<<endl;
         delete temp;
     }
     else
@@ -104,14 +101,14 @@ void reverse() {
 int main()
 {
 //   display();
-   append(10);
-   append(20);
-   append(30);
-   append(0);
+    append(10);
+    append(20);
+    append(30);
+    append(0);
 
 
-   cout<<"linked list"<<endl;
-   display();
+    cout<<"linked list"<<endl;
+    display();
 
     reverse();
 
