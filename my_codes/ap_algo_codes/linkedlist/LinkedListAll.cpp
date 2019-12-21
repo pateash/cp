@@ -89,7 +89,7 @@ void reverse() {
     next=cur;
 
     while(cur!=nullptr){
-        next=next->next; //we must have this line here or we have to check the condition
+        next=cur->next; //we must have this line here or we have to check the condition
         cur->next=prev;
         prev=cur;
         cur=next;
