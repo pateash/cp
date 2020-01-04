@@ -6,10 +6,9 @@
 
 #include "CommonLibs.h"
 
-
 template <typename T>
 class LinkedList{
-private:
+public: // made every thing public so we could create loop and stuff for testing
     struct node {
         T value;
         node * next;
@@ -21,8 +20,6 @@ private:
     };
 
     node * start=nullptr;
-
-public:
 
     void append(T i) {
         if(start == nullptr){
@@ -58,6 +55,21 @@ public:
         }
         cout<<endl;
     }
+
+    void display(int elementsToDisplay){  // used for linkedlists with loops
+        if(start== nullptr){
+            cout<<"Empty"<<endl;
+            return;
+        }
+
+        node*temp=start;
+        while(temp!= nullptr && elementsToDisplay--){
+            cout<<temp->value<<" ";
+            temp=temp->next;
+        }
+        cout<<endl;
+    }
+
 
     void reverse(){
         if(start == nullptr || start->next == nullptr){
@@ -109,6 +121,42 @@ public:
         }
         delete tmp;
     }
+
+    bool detectAndBreakLoop(){
+
+        if(this->start==nullptr || this->start->next==nullptr)
+        {
+            cout<<"List has less than 2 elements, so loop not possible.";
+            return false;
+        }
+
+        node *tortoise, *hare;
+        hare=tortoise=this->start;
+
+        do{ // hare will always be ahead of tortoise so no worries, except for the first time initially, that's why we are using do while()
+            tortoise=tortoise->next;
+            hare=hare->next->next;
+        }while(hare != nullptr && hare->next != nullptr && hare!=tortoise);
+
+        if( hare != tortoise) { // loop not found
+            cout<<"loop not found.";
+            return false;
+        }
+        else{
+            // loop found, set one of the pointer to starting and move both together both by 1
+
+            tortoise=this->start;
+
+            while(tortoise->next != hare->next) { // using next, so we can delete loop as when matched we will be standing to previous node
+                tortoise=tortoise->next;
+                hare=hare->next;
+            }
+
+            cout<<"loop found, starting at: "<< tortoise->next->value<<", removing.."<<endl;
+            hare->next=nullptr; //breaking the loop
+            return true;
+        }
+    }
 };
 
 #endif
@@ -116,12 +164,10 @@ public:
 
 int main()
 {
-
+    cout<<"------------ LinkedList1"<<endl;
     LinkedList<int> linkedList;
 
     linkedList.append(10);
-
-//   display();
     linkedList.append(10);
     linkedList.append(20);
     linkedList.append(30);
@@ -143,7 +189,7 @@ int main()
     cout<<"after deleting 20 and 10 linked list"<<endl;
     linkedList.display();
 
-    cout<<"------------"<<endl;
+    cout<<"------------ LinkedList2"<<endl;
 
     LinkedList<float> linkedList2;
 
@@ -163,12 +209,33 @@ int main()
     cout<<"after deleting 20 and 10 linked list"<<endl;
     linkedList2.display();
 
+    // for testing detecting loop and breaking it
+
+    cout<<"------------ LinkedList3"<<endl;
+
+    LinkedList<int> linkedList3;
+
+    linkedList3.append(10);
+    linkedList3.append(20);
+    linkedList3.append(30);
+    linkedList3.append(0);
+
+    linkedList3.display();
+
+    LinkedList<int>::node* start= linkedList3.start;
+
+    start->next->next->next->next = start->next;
+
+    linkedList3.display(8);
+    linkedList3.detectAndBreakLoop();
+    linkedList3.display(8);
     return 0;
 }
 
 /*
 OUTPUT
 ----------
+------------ LinkedList1
 appended:10
 appended:10
 appended:20
@@ -181,7 +248,7 @@ after reversing linked list
 20 Not found
 after deleting 20 and 10 linked list
 30 10
-------------
+------------ LinkedList2
 appended:10.25
 appended:20.21
 linked list
@@ -190,4 +257,17 @@ after reversing linked list
 20.21 10.25
 after deleting 20 and 10 linked list
 10.25
-*/
+------------ LinkedList3
+appended:10
+appended:20
+appended:30
+appended:0
+10 20 30 0
+10 20 30 0 20 30 0 20
+loop found, starting at: 20, removing..
+10 20 30 0
+
+Process finished with exit code 0
+
+
+ */
