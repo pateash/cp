@@ -44,7 +44,7 @@ private:
     }
 
     int rmq(int p,int l,int r,int i,int j){
-        /* there are 3 total possibility of range occurance between two range
+        /* there are 3 total possibility of range occurring between two range
          *  1- [l-r] lies fully inside [i,j]
          *  2- [l-r] lies outside [i,j], either in left or right
          *  3- some part of [i,j] lies inside [l,r], in this case go breaking [l,r]
@@ -86,7 +86,7 @@ private:
          */
 
         if(l==r) {
-            st[p] = value; //so update
+            st[p] = value; //found one element, so update
             return;
         }
 
@@ -105,48 +105,35 @@ public:
 //        show_1d(st);
     }
 
+    // range min query
     int rmq(int i,int j){
         return rmq(1,0,n-1,i,j);
     }
     void updateRange(int i,int j,int value){
         // this function updates range [i,j] with st[p]=value
 
-// for(int k=0;k<=j;k++) A[k]=value;//modifying underlying array remove if not required
+        for(int k=i;k<=j;k++)
+            A[k]=value; //modifying underlying array, its actually not required but good to have same data in A also
 
         updateRange(1,0,n-1,i,j,value);
 //        show_1d(st);
-     }
+    }
 };
 
 #endif
 
-
-//FOR TESTING
+//range min query
 int main() {
 
-    string curdir = "/home/ashish/Documents/code/";
-    if (
-            freopen(string(curdir + "in.txt").c_str(), "r", stdin)
-            &&
-            freopen(string(curdir + "out.txt").c_str(), "w", stdout)
-            );
-    else {
-        cout << "ERROR: " << strerror(errno) << endl;
-        exit(0);
-    }
-//    test_working();
-    clock_t t1=clock(),t2;
-       int n=10;
+    int n=10;
     vector<int> A;
-    for(int i=0;i<n;i++) A.push_back(i+1);
+    for(int i=0;i<n;i++) A.push_back(i+1); // stores 1 to 10
 
-  SegmentTree S(A);
+    SegmentTree S(A);
     cout<<S.rmq(0,3)<<endl;
     cout<<S.rmq(3,6)<<endl;
     S.updateRange(0,3,50);
     cout<<S.rmq(0,4)<<endl;
-    t2=clock();
-    //   cout<<endl<<"time is "<<(t2-t1)/(1.0*CLOCKS_PER_SEC)<<" seconds"<<endl;
     return 0;
 }
 

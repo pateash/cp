@@ -34,8 +34,8 @@ public:
      */
     int findSet(int i){
 
-        // if this is parent then return , otherwise call findSet() for paten
-        // we are also setting it to p[i] for compression which will eventually reduce no. of steps in findSet() and
+        // if this is parent then return , otherwise call findSet() for parent
+        // we are also setting it to p[i](GrandParent will become Parent) for compression which will eventually reduce no. of steps in findSet() and
         // do not affect anything at all.
 
 
