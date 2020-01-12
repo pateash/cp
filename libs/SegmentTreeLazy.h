@@ -120,6 +120,14 @@ public:
         //update  A[i..j] as value
         update(1,0,n-1,i,j,value);
     }
+    void display(){
+        cout<<"Showing Segment Tree - "<<endl;
+        for(int i=0;i<st.size();i++){
+            cout<<st[i]<<" ";
+        }
+        cout<<endl;
+    }
+
 };
 
 //FOR TESTING

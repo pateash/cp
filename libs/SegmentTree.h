@@ -118,6 +118,15 @@ public:
         updateRange(1,0,n-1,i,j,value);
 //        show_1d(st);
     }
+
+    void display(){
+        cout<<"Showing Segment Tree - "<<endl;
+        for(int i=0;i<st.size();i++){
+            cout<<st[i]<<" ";
+        }
+        cout<<endl;
+    }
+
 };
 
 #endif

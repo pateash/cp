@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// Range sum query using Fenwick Tree
 class FenwickTree {
 private:
     vector<int> ft;
@@ -23,7 +24,7 @@ public:
 
     // initialization: n + 1 zeroes, ignore index 0
     // then adjust all with the value
-    FenwickTree(vector<int>v) {
+    FenwickTree(vector<int>&v) {
         int n=v.size();
         ft.assign(n + 1, 0);
         for(int i=0;i<v.size();i++){
@@ -31,19 +32,24 @@ public:
         }
     }
 
-    int rsq(int b) {   // from start to end                                  // returns RSQ(1, b)
+    int query(int b) {   // from start to end                                  // returns RSQ(1, b)
         int sum = 0;
+        //while b!=0, sum all the Tree elements and keep removing Least Significant bit
         for (; b; b -= LSOne(b)) sum += ft[b];
-        return sum; }
+        return sum;
+    }
 
-    int rsq(int a, int b) {                              // returns RSQ(a, b)
-        return rsq(b) - (a == 1 ? 0 : rsq(a - 1)); } // return prefixSum(b) - prefixSum(a-1)
+    int query(int a, int b) {                              // returns RSQ(a, b)
+        return query(b) - (a == 1 ? 0 : query(a - 1)); } // return prefixSum(b) - prefixSum(a-1)
 
     // adjusts value of the k-th element by v (v can be +ve/inc or -ve/dec)
     void adjust(int index, int v) {                    // note: n = ft.size() - 1
-        for (; index < (int)ft.size(); index += LSOne(index)) ft[index] += v; }
+        //while b<size(), adjust all the Tree elements and keep going reverse to query Least Significant bit
+        for (; index < (int)ft.size(); index += LSOne(index)) ft[index] += v;
+    }
 
     void display(){
+        cout<<"Showing Fenwick Tree - "<<endl;
         for(int i=1;i<ft.size();i++){
             cout<<ft[i]<<" ";
         }
@@ -64,14 +70,14 @@ int main() {
     ft.adjust(7, 2);        // ft = {-,0,1,0,2,2,5,2, 9,0,0}, idx 7,8 => +2
     ft.adjust(8, 1);        // ft = {-,0,1,0,2,2,5,2,10,0,0}, idx 8 => +1
     ft.adjust(9, 1);        // ft = {-,0,1,0,2,2,5,2,10,1,1}, idx 9,k10 => +1
-    printf("%d\n", ft.rsq(1, 1));  // 0 => ft[1] = 0
-    printf("%d\n", ft.rsq(1, 2));  // 1 => ft[2] = 1
-    printf("%d\n", ft.rsq(1, 6));  // 7 => ft[6] + ft[4] = 5 + 2 = 7
-    printf("%d\n", ft.rsq(1, 10)); // 11 => ft[10] + ft[8] = 1 + 10 = 11
-    printf("%d\n", ft.rsq(3, 6));  // 6 => rsq(1, 6) - rsq(1, 2) = 7 - 1 = 6
+    printf("%d\n", ft.query(1, 1));  // 0 => ft[1] = 0
+    printf("%d\n", ft.query(1, 2));  // 1 => ft[2] = 1
+    printf("%d\n", ft.query(1, 6));  // 7 => ft[6] + ft[4] = 5 + 2 = 7
+    printf("%d\n", ft.query(1, 10)); // 11 => ft[10] + ft[8] = 1 + 10 = 11
+    printf("%d\n", ft.query(3, 6));  // 6 => rsq(1, 6) - rsq(1, 2) = 7 - 1 = 6
 
     ft.adjust(5, 2); // update demo
-    printf("%d\n", ft.rsq(1, 10)); // now 13
+    printf("%d\n", ft.query(1, 10)); // now 13
     // return 0;
 
     cout<<" --------------------\n";
@@ -80,11 +86,11 @@ int main() {
     FenwickTree ft2(v);
     ft2.display();
 
-    cout<<ft2.rsq(3)<<endl; // 0,2
+    cout << ft2.query(3) << endl; // 0,2
     ft2.adjust(1,3);
 
     ft2.display();
-    cout<<ft2.rsq(3)<<endl; // 0,2
+    cout << ft2.query(3) << endl; // 0,2
 
 }
 
