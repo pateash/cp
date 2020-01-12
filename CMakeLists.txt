@@ -11,6 +11,7 @@ set(SOURCE_FILES
         libs/UnionFind.h
         libs/SegmentTree.h
         libs/SegmentTreeLazy.h
+        libs/FenwickTree.h
         libs/ModArithmetic.h
         libs/Sorting.h
         libs/BinarySearchTree.h
