@@ -1,7 +1,7 @@
 #ifndef SAMPLE_BINARY_SEARCH_UTILS_H
 #define SAMPLE_BINARY_SEARCH_UTILS_H
 
-#include "libs/CommonLibs.h"
+#include "CommonLibs.h"
 
 #define INVALID -1
 
