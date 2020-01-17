@@ -3,6 +3,8 @@
 
 #include "CommonLibs.h"
 
+// this version doesn't have top to manage and uses native vector functions, checkout other Lib Stack2.h
+template <typename T>
 class Stack{
     vector<T>v;
 public:
