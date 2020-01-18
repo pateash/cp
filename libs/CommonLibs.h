@@ -28,6 +28,7 @@
 #define vl vector<ll>
 #define ii pair<int,int>
 #define vii vector<ii>
+#include<bitset>
 #define vvii vector<vector<ii>> // could be used for graph adjacencny list
 //IO
 #define pr(n)  printf("%d",n)
