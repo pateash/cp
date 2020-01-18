@@ -12,6 +12,7 @@
 #include<list>
 #include<unordered_map>
 #include<unordered_set>
+#include<bitset>
 //types
 #define llu long long unsigned int
 #define ll long long int
@@ -105,6 +106,7 @@ void test_working(){
 
 
 void solve(){
+    read(n);
 
 }
 
