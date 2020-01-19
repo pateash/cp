@@ -33,11 +33,12 @@ int count(int arr[],int n,int sum){
     }
     return dp[n-1][sum];
 }
-long dp[251][51];
+// n+1, sum+1
+long dp[51][251];
 
 long coin_change(int sum,int index, vector<long>&v){
     if(index<0 || sum<0) return 0;
-    long &x=dp[sum][index];
+    long &x=dp[index][sum];
 
     if(x!=-1) return x;
     if(sum==0) x=1;
@@ -62,9 +63,9 @@ int main()
     int sum=4; //ans -> 1111, 112, 22, 31
     printf("%d\n", coin_change(sum,arr));
 
-    for (int k = 0; k < sum; ++k) {
-        for (int l = 0; l < arr.size()+1 ; ++l) {
-            cout<<dp[k][l]<<" ";
+    for (int l = 0; l < arr.size() ; ++l) {
+        for (int k = 0; k < sum+1; ++k) {
+            cout<<dp[l][k]<<" ";
         }
         cout<<endl;
     }

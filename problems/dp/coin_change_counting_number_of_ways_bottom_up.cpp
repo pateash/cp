@@ -44,3 +44,10 @@ int main()
     getchar();
     return 0;
 }
+
+/*OUTPUT
+1 1 1 1 1
+1 1 2 2 3
+1 1 2 3 4
+4
+ */
