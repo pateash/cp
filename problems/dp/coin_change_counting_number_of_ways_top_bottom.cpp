@@ -1,7 +1,6 @@
+//source - https://www.hackerrank.com/challenges/coin-change/problem
 //#include<bits/stdc++.h>
 #include "libs/CommonLibs.h"
-#define R 3
-#define C 3
 using namespace std;
 int count(int arr[],int n,int sum){
     //sum could be zero also
