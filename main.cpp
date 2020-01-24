@@ -110,17 +110,21 @@ void solve(){
 
 }
 
-int main() {
+int main(int argc, char *argv[]) {
 
-    string curdir = "/Users/ashish/Desktop/code/";
-    if (
-            freopen(string(curdir + "in.txt").c_str(), "r", stdin)
-            &&
-            freopen(string(curdir + "out.txt").c_str(), "w", stdout)
-            );
-    else {
-        cout << "ERROR: " << strerror(errno) << endl;
-        exit(0);
+    // 1 args is passed by default, so if more than 1 passed
+    // pass anything in args like 'test'
+    if(argc>1) {
+        string curdir = "/Users/ashish/Desktop/code/";
+        if (
+                freopen(string(curdir + "in.txt").c_str(), "r", stdin)
+                &&
+                freopen(string(curdir + "out.txt").c_str(), "w", stdout)
+                );
+        else {
+            cout << "ERROR: " << strerror(errno) << endl;
+            exit(0);
+        }
     }
 
 //    test_working();
