@@ -30,7 +30,7 @@ long long  power(int i,int c){
 }
 
 long long factorial_recursive(int n){
-    if(n==1) return 1;
+    if(n==1 || n==0) return 1;
     return n * factorial_recursive(n-1);
 }
 
@@ -42,17 +42,48 @@ long long factorial_iterative(int n){
     return fact;
 }
 
+/*
+ * C(n, k) = C(n-1, k-1) + C(n-1, k)
+   C(n, 0) = C(n, n) = 1
+ * */
+
+#define LIMIT 21
+llu dp_nCr[LIMIT][LIMIT];
+
+// dp solution
+llu nCr(int n, int r) {
+    if (r == 0 || n == r) {
+        return 1;
+    }
+    llu &x=dp_nCr[n][r];
+    if(x != -1)
+        return x;
+    x=nCr(n-1,r) + nCr(n-1,r-1);
+    return x;
+}
+
+
 int main(){
+
+
     assert(factorial_recursive(1)==1
-    && factorial_recursive(1)==0 
-    && factorial_recursive(4)==24
-       && factorial_recursive(6)==720);
+           && factorial_recursive(0)==1
+           && factorial_recursive(4)==24
+           && factorial_recursive(6)==720);
 
 
     assert(factorial_iterative(1)==1
-           && factorial_iterative(1)==0
+           && factorial_iterative(0)==1
            && factorial_iterative(4)==24
            && factorial_iterative(6)==720);
+
+    memset(dp_nCr, -1, sizeof(dp_nCr));
+
+    assert( nCr(5,2) == 10
+            && nCr(5,1) == 5
+            && nCr(10,3) == 120
+    );
+    return 0;
 }
 
 #endif
