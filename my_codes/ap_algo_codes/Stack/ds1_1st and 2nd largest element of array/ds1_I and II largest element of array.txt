@@ -1,1 +1,0 @@
- Q.  Find 1st and 2nd largest element of an array and expressed in big 'O' notation(in copy)?

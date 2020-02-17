@@ -5,21 +5,21 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
      main.cpp
-        libs/CommonLibs.h
-        libs/MathsUtils.h
-        libs/Primes.h
-        libs/UnionFind.h
-        libs/SegmentTree.h
-        libs/SegmentTreeLazy.h
-        libs/FenwickTree.h
-        libs/ModArithmetic.h
-        libs/Sorting.h
-        libs/BinarySearchTree.h
-        libs/StringUtils.h
-        libs/BitsUtils.h
-        libs/Graph.h
-        libs/Stack.h
-        libs/BinarySearchUtils.h
+        src/libs/CommonLibs.h
+        src/libs/MathsUtils.h
+        src/libs/Primes.h
+        src/libs/UnionFind.h
+        src/libs/SegmentTree.h
+        src/libs/SegmentTreeLazy.h
+        src/libs/FenwickTree.h
+        src/libs/ModArithmetic.h
+        src/libs/Sorting.h
+        src/libs/BinarySearchTree.h
+        src/libs/StringUtils.h
+        src/libs/BitsUtils.h
+        src/libs/Graph.h
+        src/libs/Stack.h
+        src/libs/BinarySearchUtils.h
         )
 
 add_executable(code ${SOURCE_FILES})
