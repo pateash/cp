@@ -86,7 +86,7 @@ public:
         return num - (num & - num); //used in fenwick tree
     }
 
-        /* this will turn on the last unset bit (0)*/
+    /* this will turn on the last unset bit (0)*/
     static int setLeastSignificantUnsetBit(int num){
         // for 1010  -> 1011 (11)
         // 10 -> 1010
@@ -106,15 +106,15 @@ public:
         return num & (num + 1);
     }
 
-        /* this will turn on the last consecutive run of 0s (if any) */
+    /* this will turn on the last consecutive run of 0s (if any) */
     static int setLastConsecutive0s(int num) {
-            // will work for   1000 -> 1111 ( 0s should be at last)
-            // 1000 - 1 -> 0111
-            // now if we do OR , 1000 | 0111 -> 1111
-            // -1 will convert all consecutive 0s into 1s
+        // will work for   1000 -> 1111 ( 0s should be at last)
+        // 1000 - 1 -> 0111
+        // now if we do OR , 1000 | 0111 -> 1111
+        // -1 will convert all consecutive 0s into 1s
 
-            return num | (num - 1);
-        }
+        return num | (num - 1);
+    }
 
     static bool isPowerOf2(int num){
         // if num is Power of 2
@@ -122,7 +122,7 @@ public:
         // num-1 = 7 = 0111,
         // and will be 0 (only if num is power of 2)
 
-      // NOTE -  num & (num - 1) == 0 will not work as == has more priority that &
+        // NOTE -  num & (num - 1) == 0 will not work as == has more priority that &
         return (num & (num - 1)) == 0;
     }
     static int findModuloIfNisPowerOf2(int num,int N){
@@ -137,7 +137,7 @@ public:
         // now, 1010 & 11 = 0010 ( it will extract only those bits which are covered by N-1 ( all 1's)
 
 
-       // NOTE -  num & (N - 1) == 0 will not work as == has more priority that &
+        // NOTE -  num & (N - 1) == 0 will not work as == has more priority that &
 
         return  num & (N - 1);
     }
@@ -155,6 +155,20 @@ public:
 
         return num1 ^ num2;
     }
+
+
+    static int isEvenOnes(int num){
+        //this function checks if no. of 1's in binary representations are even
+        //https://stackoverflow.com/a/19373278/6178783
+        // used in - https://www.codechef.com/MARCH20B/problems/ENGXOR
+        int a = (num ^ num>>16) & 0x0000FFFF;
+        int b = (a ^ a>>8)  & 0x000000FF;
+        int c = (b ^ b>>4)  & 0x0000000F;
+        int d = (c ^ c>>2)  & 0x00000003;
+        int e = (d ^ d>>1)  & 0x00000001;
+        return !(e&1);
+    }
+
 };
 
 int main(){
