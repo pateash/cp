@@ -48,18 +48,25 @@ long long factorial_iterative(int n){
  * */
 
 #define LIMIT 21
-llu dp_nCr[LIMIT][LIMIT];
+llu dp_nCr[LIMIT][LIMIT]; // Note - don't forget to initialize it in main()
 
 // dp solution
-llu nCr(int n, int r) {
+llu nCrDPSolution(int n, int r) {
     if (r == 0 || n == r) {
         return 1;
     }
     llu &x=dp_nCr[n][r];
     if(x != -1)
         return x;
-    x=nCr(n-1,r) + nCr(n-1,r-1);
+    x=nCrDPSolution(n-1,r) + nCrDPSolution(n-1,r-1);
     return x;
+}
+
+llu nCr(int n, int r) {
+    if (r == 0 || n == r) {
+        return 1;
+    }
+    return nCr(n-1,r) + nCr(n-1,r-1);
 }
 
 
@@ -79,10 +86,17 @@ int main(){
 
     memset(dp_nCr, -1, sizeof(dp_nCr));
 
+    assert( nCrDPSolution(5,2) == 10
+            && nCrDPSolution(5,1) == 5
+            && nCrDPSolution(10,3) == 120
+    );
+
+
     assert( nCr(5,2) == 10
             && nCr(5,1) == 5
             && nCr(10,3) == 120
     );
+
     return 0;
 }
 
