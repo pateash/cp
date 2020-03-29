@@ -14,5 +14,7 @@ jobs:
     - name: cmake2
       run: cmake "/home/runner/work/code/code"
     - name: cmake build
-      run: cmake --build "home/runner/work/code/code/cmake-build-debug" --target code -- -j 2
+      run: cmake --build "home/runner/work/code/code" --target code -- -j 2
+    - name: cmake build2
+      run: cmake --build "home/runner/work/code/code" --target code -- -j 2
 
