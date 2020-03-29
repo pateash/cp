@@ -11,10 +11,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: cmake1
       run: cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/runner/work/code/code"
-    - name: cmake2
-      run: cmake "/home/runner/work/code/code"
     - name: cmake build
-      run: cmake --build "home/runner/work/code/code" --target code -- -j 2
-    - name: cmake build2
-      run: cmake --build "home/runner/work/code/code" --target code -- -j 2
+      run: cmake --build  --target code -- -j 2
 
