@@ -8,13 +8,21 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-16.04, ubuntu-18.04, macOS-latest]
-        if:
-        runner.os == 'Linux':
-              cpp-version: [gcc-4.8, gcc-5, gcc-6, gcc-7, clang-3.9, clang]
-        else if:
-        runner.os == 'macOS':
-              cpp-version: [xcode9.3, xcode11]
+        cfg:
+          - { os: ubuntu-16.04, cpp-version: gcc-4.8 }
+          - { os: ubuntu-16.04, cpp-version: gcc-5 }
+          - { os: ubuntu-16.04, cpp-version: gcc-6 }
+          - { os: ubuntu-16.04, cpp-version: gcc-7 }
+          - { os: ubuntu-16.04, cpp-version: clang-3.9 }
+          - { os: ubuntu-16.04, cpp-version: clang }
+          - { os: ubuntu-18.04, cpp-version: gcc-4.8 }
+          - { os: ubuntu-18.04, cpp-version: gcc-5 }
+          - { os: ubuntu-18.04, cpp-version: gcc-6 }
+          - { os: ubuntu-18.04, cpp-version: gcc-7 }
+          - { os: ubuntu-18.04, cpp-version: clang-3.9 }
+          - { os: ubuntu-18.04, cpp-version: clang }
+          - { os: macOS-latest, cpp-version: xcode9.3 }
+          - { os: macOS-latest, cpp-version: xcode11 }
     steps:
     - uses: actions/checkout@v2
     - name: Setup compiler
