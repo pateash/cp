@@ -60,7 +60,7 @@ public:
 
 #endif
 
-int main() {
+/* int main() {
     // idx   0 1 2 3 4 5 6 7  8 9 10, no index 0!
     FenwickTree ft(10);     // ft = {-,0,0,0,0,0,0,0, 0,0,0} // create without array
     ft.adjust(2, 1);        // ft = {-,0,1,0,1,0,0,0, 1,0,0}, idx 2,4,8 => +1
@@ -93,6 +93,7 @@ int main() {
     cout << ft2.query(3) << endl; // 0,2
 
 }
+*/
 
 /* //output
 

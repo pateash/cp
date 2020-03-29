@@ -61,6 +61,7 @@ public:
         }
 };
 
+/*
  int main()
 {
     string s="abc";
@@ -72,7 +73,7 @@ public:
     s="abc";
     StringUtils::generateAllPermutations(s);
 }
-
+*/
 /* OUTPUT
 /Users/ashish/Desktop/code/cmake-build-debug/Sample
 following substrings are there for: abc

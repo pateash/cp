@@ -73,7 +73,7 @@ public:
 #endif
 
 
-int main() {
+/* int main() {
 
     string curdir = "/home/ashish/Documents/code/";
     if (
@@ -108,6 +108,8 @@ int main() {
 
     return 0;
 }
+ */
+
 
 /*
 OUTPUT

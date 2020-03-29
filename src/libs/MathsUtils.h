@@ -69,7 +69,7 @@ llu nCr(int n, int r) {
     return nCr(n-1,r) + nCr(n-1,r-1);
 }
 
-int main(){
+/* int main(){
 
 
     assert(factorial_recursive(1)==1
@@ -97,5 +97,7 @@ int main(){
     );
     return 0;
 }
+ */
+
 
 #endif

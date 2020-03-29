@@ -10,8 +10,6 @@
 
 //find notes for segments tree in notes/
 
-#define INVALID -999999
-
 class SegmentTree{
 
 private:
@@ -132,7 +130,7 @@ public:
 #endif
 
 //range min query
-int main() {
+/* int main() {
 
     int n=10;
     vector<int> A;
@@ -145,6 +143,7 @@ int main() {
     cout<<S.rmq(0,4)<<endl;
     return 0;
 }
+*/
 
 //output
 //1

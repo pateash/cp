@@ -150,7 +150,7 @@ int main(int argc, char *argv[]) {
     // 1 args is passed by default, so if more than 1 passed
     // pass anything in args like 'test'
     if(argc>1) {
-        string curdir = "/Users/ashish/Desktop/code/";
+        string curdir = "/Users/ashish/Desktop/code/src/";
         if (
                 freopen(string(curdir + "in.txt").c_str(), "r", stdin)
                 &&
