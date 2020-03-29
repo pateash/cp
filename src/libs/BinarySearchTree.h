@@ -37,7 +37,8 @@ class BST
 /*
  * Main Contains Menu
  */
-int main()
+/*
+ int main()
 {
     int choice, num;
     BST bst;
@@ -100,6 +101,7 @@ int main()
         }
     }
 }
+ */
 
 /*
  * Find Element in the Tree

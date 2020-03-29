@@ -61,7 +61,6 @@
 #define call(c) (c).begin(),(c).end()
 //constants
 
-#define INVALID -999
 #define INF int(1e9+1)
 
 //debug

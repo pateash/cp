@@ -161,7 +161,7 @@ public: // made every thing public so we could create loop and stuff for testing
 
 #endif
 
-
+/*
 int main()
 {
     cout<<"------------ LinkedList1"<<endl;
@@ -231,7 +231,7 @@ int main()
     linkedList3.display(8);
     return 0;
 }
-
+*/
 /*
 OUTPUT
 ----------

@@ -45,7 +45,7 @@ void quick_sort(vector<T> &v, int low,int high){
     quick_sort(v,pivot+1,high);
 }
 
-int main()
+/* int main()
 {
     vi v = {10, 7, 8, 9, 1, 5};
     quick_sort(v, 0, v.size()-1);
@@ -55,5 +55,6 @@ int main()
     }
     return 0;
 }
+*/
 
 #endif

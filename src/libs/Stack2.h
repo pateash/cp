@@ -7,13 +7,13 @@
 #include "CommonLibs.h"
 
 template <typename T>
-class Stack{
+class Stack2{
     vector<T> array; //we can't allow access to array, as we only want it to be accessed via top
     int top;
 
 public:
 
-    Stack(int size){
+    Stack2(int size){
         array.resize(size);
         top=-1;
     }
@@ -58,10 +58,10 @@ public:
 #endif
 
 
-int main()
+/* int main()
 {
     cout<<"------------ LinkedList1"<<endl;
-    Stack<int> stack(100);
+    Stack2<int> stack(100);
 
     stack.push(5);
     stack.push(10);
@@ -85,6 +85,8 @@ int main()
 
     return 0;
 }
+ */
+
 
 /*
 OUTPUT

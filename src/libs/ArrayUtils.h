@@ -45,7 +45,8 @@ public:
 
 #endif
 
-int main()
+/*
+ int main()
 {
     assert(
             ArrayUtils<int>::findSumOfAbsoluteDifferenceOfAllPairs({1,2,3,4,5})
@@ -55,6 +56,6 @@ int main()
             == 17);
     cout<<"------------"<<endl;
 }
-
+*/
 /* OUTPUT
 */

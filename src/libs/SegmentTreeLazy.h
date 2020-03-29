@@ -17,7 +17,7 @@
  */
 
 // it is possible to keep INVALID and LAZY_DEFAULT same, but its better to keep them different
-#define INVALID -999999  //invalid will be something which can't be ther be there in segment tree
+//#define INVALID -999999  //invalid will be something which can't be ther be there in segment tree
 #define LAZY_DEFAULT -1 //lazy default could be something which can't be there in lazy
 
 //INVALID will be used in query() to find which part is correct and not out of bound also could be used to initially set values in SegmentTree
@@ -132,7 +132,7 @@ public:
 
 //FOR TESTING
 
-int main() {
+/* int main() {
 
     int n;cin>>n;
     vector<int> v(n);
@@ -159,6 +159,9 @@ int main() {
     }
     return 0;
 }
+
+ */
+
 
 /*
 INPUT-1

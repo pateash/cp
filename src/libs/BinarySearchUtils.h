@@ -85,7 +85,7 @@ public:
 
 };
 
-int main()
+/* int main()
 {
    vi v={10,20,30,40,50};
 
@@ -128,6 +128,7 @@ int main()
 
     return 0;
 }
+*/
 
 
 #endif
