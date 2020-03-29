@@ -11,6 +11,10 @@
 #include<cstring>
 #include<climits>
 #include<algorithm>
+#include <functional>
+#include <numeric>
+#include <utility>
+#include <limits>
 #include<vector>
 #include<list>
 #include<map>
@@ -19,6 +23,7 @@
 #include<list>
 #include<unordered_map>
 #include<unordered_set>
+#include<bitset>
 //types
 #define llu long long unsigned int
 #define ll long long int
@@ -28,8 +33,8 @@
 #define vl vector<ll>
 #define ii pair<int,int>
 #define vii vector<ii>
-#include<bitset>
 #define vvii vector<vector<ii>> // could be used for graph adjacencny list
+
 //IO
 #define pr(n)  printf("%d",n)
 #define prl(n) printf("%lld",n)
@@ -60,8 +65,32 @@
 #define INF int(1e9+1)
 
 //debug
-#define show(a) std::cout<<#a<<" : "<<a<<std::endl;
 using namespace std;
+
+#define DEBUG(a) std::cerr<<#a<<" : "<<a<<std::endl;
+
+#define DEBUGN(args...)     (Debugger()) , args
+class Debugger
+{
+public:
+    Debugger(const std::string& _separator = " - ") :
+            first(true), separator(_separator){}
+
+    template<typename ObjectType> Debugger& operator , (const ObjectType& v)
+    {
+        if(!first)
+            std:cerr << separator;
+        std::cerr << v;
+        first = false;
+        return *this;
+    }
+    ~Debugger() {  std:cerr << endl;}
+
+private:
+    bool first;
+    std::string separator;
+};
+
 
 //testing functions
 template <typename T> void show_2d(T container){
@@ -126,8 +155,6 @@ template<typename T> void show_graph(T AdjList){
     }
     cout<<"-----------"<<endl;
 }
-//debug
-#define show(a) std::cout<<#a<<" : "<<a<<std::endl;
-using namespace std;
+
 
 #endif

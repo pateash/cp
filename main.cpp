@@ -4,6 +4,10 @@
 #include<cstring>
 #include<climits>
 #include<algorithm>
+#include <functional>
+#include <numeric>
+#include <utility>
+#include <limits>
 #include<vector>
 #include<list>
 #include<map>
@@ -49,8 +53,32 @@
 #define readd(n) double n;scd(n)
 #define call(c) (c).begin(),(c).end()
 //debug
-#define show(a) std::cout<<#a<<" : "<<a<<std::endl;
 using namespace std;
+
+#define DEBUG(a) std::cerr<<#a<<" : "<<a<<std::endl;
+
+#define DEBUGN(args...)     (Debugger()) , args
+class Debugger
+{
+public:
+    Debugger(const std::string& _separator = " - ") :
+            first(true), separator(_separator){}
+
+    template<typename ObjectType> Debugger& operator , (const ObjectType& v)
+    {
+        if(!first)
+            std:cerr << separator;
+        std::cerr << v;
+        first = false;
+        return *this;
+    }
+    ~Debugger() {  std:cerr << endl;}
+
+private:
+    bool first;
+    std::string separator;
+};
+
 
 //testing functions
 template <typename T> void show_2d(T container){
@@ -107,6 +135,13 @@ void test_working(){
 
 void solve(){
     read(n);
+
+    DEBUG(n);
+
+    vi v(n);
+    rep(n) sc(v[i]);
+
+    DEBUGN(0,1,2);
 
 }
 

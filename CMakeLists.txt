@@ -5,7 +5,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 set(SOURCE_FILES
      main.cpp
-     main2.cpp
+#     main2.cpp
         src/libs/CommonLibs.h
         src/libs/MathsUtils.h
         src/libs/Primes.h
