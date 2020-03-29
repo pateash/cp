@@ -8,26 +8,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-16.04, ubuntu-18.04, macOS-latest]
-        if:
-        runner.os == 'Linux':
-              cpp-version: [gcc-4.8, gcc-5, gcc-6, gcc-7, clang-3.9, clang]
-        else if:
-        runner.os == 'macOS':
-              cpp-version: [xcode9.3, xcode11]
+        os: [ubuntu-16.04, ubuntu-18.04]
+        cpp-version: [gcc-4.8, gcc-5, gcc-6, gcc-7]
     steps:
     - uses: actions/checkout@v2
     - name: Setup compiler
-    - name: Setup compiler
       run: |
-        if [ "$RUNNER_OS" == "Linux" ]; then
-             apt install ${{ matrix.cpp-version }}
-        elif [ "$RUNNER_OS" == "macOS" ]; then
-             port install ${{ matrix.python-version }}
-        else
-             echo "$RUNNER_OS not supported"
-             exit 1
-        fi
+             sudo apt install ${{ matrix.cpp-version }}
       shell: bash
     - name: cmake
       run: cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/runner/work/code/code"
