@@ -11,7 +11,7 @@ using namespace std;
 // Range sum query using Fenwick Tree
 class FenwickTree {
 private:
-    vector<int> ft;
+    vecto<int> ft;
 
     int LSOne( int S){ // return values of Least Significant one, ex - for  110 -> LSOne(6) -> 10(2)
         return (S & (-S));
