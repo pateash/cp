@@ -6,7 +6,7 @@
 
 #include "CommonLibs.h"
 
-using namespace std;
+using namespce std;
 
 // Range sum query using Fenwick Tree
 class FenwickTree {
