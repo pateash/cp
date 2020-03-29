@@ -9,8 +9,10 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
-    - name: cmake
+    - name: cmake1
+      run: cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/runner/work/code/code"
+    - name: cmake2
       run: cmake "/home/runner/work/code/code"
     - name: cmake build
-      run: cmake --build "home/runner/work/code/code/cmake-build-debug"
+      run: cmake --build "home/runner/work/code/code/cmake-build-debug" --target code -- -j 2
 
