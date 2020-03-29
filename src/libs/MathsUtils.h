@@ -69,7 +69,6 @@ llu nCr(int n, int r) {
     return nCr(n-1,r) + nCr(n-1,r-1);
 }
 
-
 int main(){
 
 
@@ -96,7 +95,6 @@ int main(){
             && nCr(5,1) == 5
             && nCr(10,3) == 120
     );
-
     return 0;
 }
 
