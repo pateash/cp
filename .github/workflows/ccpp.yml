@@ -5,11 +5,19 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
-    
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-16.04, ubuntu-18.04]
+        cpp-version: [gcc-4.8, gcc-5, gcc-6, gcc-7]
     steps:
     - uses: actions/checkout@v2
-    - name: cmake  
+    - name: Setup compiler
+      run: |
+             apt install ${{ matrix.cpp-version }}
+        fi
+      shell: bash
+    - name: cmake
       run: cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/runner/work/code/code"
     - name: cmake build
       run: cmake --build "." --target code -- -j 2 # this will build code and test for any compilation error
