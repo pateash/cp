@@ -86,7 +86,7 @@ public:
         return num - (num & - num); //used in fenwick tree
     }
 
-    /* this will turn on the last unset bit (0)*/
+        /* this will turn on the last unset bit (0)*/
     static int setLeastSignificantUnsetBit(int num){
         // for 1010  -> 1011 (11)
         // 10 -> 1010
@@ -122,7 +122,7 @@ public:
         // num-1 = 7 = 0111,
         // and will be 0 (only if num is power of 2)
 
-        // NOTE -  num & (num - 1) == 0 will not work as == has more priority that &
+      // NOTE -  num & (num - 1) == 0 will not work as == has more priority that &
         return (num & (num - 1)) == 0;
     }
     static int findModuloIfNisPowerOf2(int num,int N){
@@ -137,7 +137,7 @@ public:
         // now, 1010 & 11 = 0010 ( it will extract only those bits which are covered by N-1 ( all 1's)
 
 
-        // NOTE -  num & (N - 1) == 0 will not work as == has more priority that &
+       // NOTE -  num & (N - 1) == 0 will not work as == has more priority that &
 
         return  num & (N - 1);
     }
@@ -156,8 +156,7 @@ public:
         return num1 ^ num2;
     }
 
-
-    static int isEvenOnes(int num){
+  static int isEvenOnes(int num){
         //this function checks if no. of 1's in binary representations are even
         //https://stackoverflow.com/a/19373278/6178783
         // used in - https://www.codechef.com/MARCH20B/problems/ENGXOR
