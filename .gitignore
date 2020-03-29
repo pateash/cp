@@ -9,6 +9,10 @@ obj/
 ignore/
 include/
 .idea/
+
+# storing run configurations
+!.idea/runConfigurations
+
 # Created by https://www.gitignore.io/api/c++
 
 ### C++ ###
@@ -44,3 +48,4 @@ include/
 *.exe
 *.out
 *.app
+
