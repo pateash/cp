@@ -9,7 +9,12 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-16.04, ubuntu-18.04]
-        cpp-version: [gcc-4.8, gcc-5, gcc-6, gcc-7]
+        cpp-version: [gcc-4.8, gcc-6, gcc-7, gcc-8, gcc-9]
+        # gcc 4.8 -> c++11 ( default support )
+        # gcc 6.1 -> c++ 14 ( default support )
+        # gcc 7 -> c++ 17
+        # gcc 8 -> c++ 2a (with  -std=c++2a )
+        # gcc 9 -> c++ 2a ( default support )
     steps:
     - uses: actions/checkout@v2
     - name: Setup compiler
