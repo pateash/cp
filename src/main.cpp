@@ -136,12 +136,8 @@ void test_working(){
 void solve(){
     read(n);
 
-    DEBUG(n);
-
     vi v(n);
     rep(n) sc(v[i]);
-
-    DEBUGN(0,1,2);
 
 }
 
