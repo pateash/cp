@@ -52,6 +52,8 @@
 #define readf(n) float n;scf(n)
 #define readd(n) double n;scd(n)
 #define call(c) (c).begin(),(c).end()
+#define MOD int(1e9+7)
+#define INF int(1e9+1)
 //debug
 using namespace std;
 
