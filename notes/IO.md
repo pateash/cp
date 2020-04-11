@@ -1,5 +1,6 @@
 # using ios::sync_with_stdio and cin.tie(0) or cin.tie(NULL)
 
+* Note - these could be used to achieve same IO performance in C++ as C IO, otherwise not required
 sources
  * https://stackoverflow.com/questions/31162367/significance-of-ios-basesync-with-stdiofalse-cin-tienull
  * https://www.geeksforgeeks.org/fast-io-for-competitive-programming/
