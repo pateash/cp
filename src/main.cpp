@@ -59,12 +59,16 @@
 using namespace std;
 
 /****** Template of Fast I/O Methods *********/
-template <typename T> inline void write(T x)
+
+#define write(x) writeValue(x,'\n')
+#define write2(x) writeValue(x,' ') // end with space
+
+template <typename T> inline void writeValue(T x, char end)
 {
     int i = 20;
     char buf[21];
     // buf[10] = 0;
-    buf[20] = '\n';
+    buf[20] = end;
 
     do
     {
@@ -74,7 +78,7 @@ template <typename T> inline void write(T x)
     do
     {
         putchar(buf[i]);
-    } while (buf[i++] != '\n');
+    } while (buf[i++] != end);
 }
 
 #define read(type) readInt<type>()
