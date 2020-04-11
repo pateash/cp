@@ -1,3 +1,9 @@
+/*
+* Author : Ashish Patel
+* Handle: ashishpatel0020
+*/
+
+/********   All Required Header Files ********/
 #include<iostream>
 #include<cstdio>
 #include <cmath>
@@ -46,17 +52,51 @@
 #define repi(i,n) for(int (i)=0;(i)<n;(i)++)
 #define repit(c) for(auto it=(c).begin();it!=(c).end();it++)
 //reading all once
-#define read(n) int n;sc(n)
-#define readll(n) ll n;scll(n)
-#define readllu(n) llu n;scllu(n)
-#define readf(n) float n;scf(n)
-#define readd(n) double n;scd(n)
 #define call(c) (c).begin(),(c).end()
 #define MOD int(1e9+7)
 #define INF int(1e9+1)
 //debug
 using namespace std;
 
+/****** Template of Fast I/O Methods *********/
+template <typename T> inline void write(T x)
+{
+    int i = 20;
+    char buf[21];
+    // buf[10] = 0;
+    buf[20] = '\n';
+
+    do
+    {
+        buf[--i] = x % 10 + '0';
+        x/= 10;
+    }while(x);
+    do
+    {
+        putchar(buf[i]);
+    } while (buf[i++] != '\n');
+}
+
+#define read(type) readInt<type>()
+template <typename T> inline T readInt()
+{
+    T n=0,s=1;
+    char p=getchar();
+    if(p=='-')
+        s=-1;
+    while((p<'0'||p>'9')&&p!=EOF&&p!='-')
+        p=getchar();
+    if(p=='-')
+        s=-1,p=getchar();
+    while(p>='0'&&p<='9') {
+        n = (n<< 3) + (n<< 1) + (p - '0');
+        p=getchar();
+    }
+
+    return n*s;
+}
+
+/****** Template Debugs *********/
 #define DEBUG(a) std::cerr<<#a<<" : "<<a<<std::endl;
 
 #define DEBUGN(args...)     (Debugger()) , args
@@ -80,7 +120,6 @@ private:
     bool first;
     std::string separator;
 };
-
 
 //testing functions
 template <typename T> void show_2d(T container){
@@ -136,11 +175,14 @@ void test_working(){
 
 
 void solve(){
-    read(n);
+    int n= read(int);
 
     vi v(n);
-    rep(n) sc(v[i]);
+    rep(n) v[i]=read(int);
 
+
+    int ans;
+    write(ans);
 }
 
 int main(int argc, char *argv[]) {
@@ -162,7 +204,7 @@ int main(int argc, char *argv[]) {
 
 //    test_working();
 //    clock_t t1=clock(),t2;
-    read(t);
+    int t = read(int);
     while(t--){
         solve();
     }
