@@ -18,8 +18,15 @@
 #include "libs/StringUtils.h"
 #include "libs/UnionFind.h"
 
-//using namespace std;
+using namespace std;
+
+void runTests(){
+    mathUtilsTests();
+}
+
+/****  UnComment below to run tests, have to comment main in Main.cpp */
+
 //int main(int argc, char *argv[]) {
-//
+//    runTests();
 //    return 0;
 //}
