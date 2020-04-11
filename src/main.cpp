@@ -144,6 +144,7 @@ void solve(){
 }
 
 int main(int argc, char *argv[]) {
+    ios::sync_with_stdio(false);
 
     // 1 args is passed by default, so if more than 1 passed
     // pass anything in args like 'test'
@@ -160,7 +161,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
-//    test_working();
+    test_working();
 //    clock_t t1=clock(),t2;
     read(t);
     while(t--){
