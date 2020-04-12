@@ -23,7 +23,7 @@ jobs:
              sudo apt install ${{ matrix.cpp-version }}
       shell: bash
     - name: cmake
-      run: cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/runner/work/code/test"
+      run: cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/runner/work/code/code"
     - name: cmake build
       run: cmake --build "." --target test -- -j 2 # this will build code and test for any compilation error
 
