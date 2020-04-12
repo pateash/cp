@@ -11,7 +11,7 @@ int main() {
   int V, E, total_neighbors, id, weight, a, b;
   int AdjMat[100][100];//first way
   vector<vii> AdjList;//second way
-  priority_queue< pair<int, ii> > EdgeList;   // third way 
+  priority_queue< pair<int, ii> > EdgeList;   // third way
 
   // Try this input for Adjacency Matrix/List/EdgeList
   // Adj Matrix
@@ -63,7 +63,7 @@ int main() {
 /**********WAY 2 (using adjacency  list)**********************/
   scanf("%d", &V);
   AdjList.assign(V, vii()); // quick way to initialize AdjList with V entries of vii(constructor of empty vactors) using assign(n,value);
-  
+
   //popuating our adjList by knowing neighbours
   for (int i = 0; i < V; i++) {
     scanf("%d", &total_neighbors);

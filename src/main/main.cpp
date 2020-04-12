@@ -202,7 +202,7 @@ void solve(){
 int main(int argc, char *argv[]) {
 
 #ifndef ONLINE_JUDGE
-    string curdir = "/Users/ashish/Desktop/code/src/";
+    string curdir = "/Users/ashish/Desktop/code/src/resources/";
     if (
             freopen(string(curdir + "in.txt").c_str(), "r", stdin)
             &&
