@@ -5,7 +5,7 @@
 #include "libs/BitsUtils.h"
 #include "libs/CommonLibs.h"
 #include "libs/FenwickTree.h"
-#include "libs/Graph.h"
+#include "libs/graph/Graph.h"
 #include "libs/LinkedList.h"
 #include "libs/MathsUtils.h"
 #include "libs/ModArithmetic.h"
@@ -29,6 +29,7 @@ void runTests(){
     testLinkedList();
     testSegmentTree();
     testSorting();
+    testGraph();
 }
 
 int main(){
