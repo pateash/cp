@@ -18,7 +18,8 @@ set(SOURCE_FILES
         src/main/libs/BinarySearchTree.h
         src/main/libs/StringUtils.h
         src/main/libs/BitsUtils.h
-        src/main/libs/Graph.h
+        src/main/libs/graph/GraphTraversal.h
+        src/main/libs/graph/GraphTypes.h
         src/main/libs/Stack.h
         src/main/libs/BinarySearchUtils.h
         )
@@ -40,7 +41,8 @@ set(TEST_SOURCE_FILES
         src/main/libs/BinarySearchTree.h
         src/main/libs/StringUtils.h
         src/main/libs/BitsUtils.h
-        src/main/libs/Graph.h
+        src/main/libs/graph/GraphTraversal.h
+        src/main/libs/graph/GraphTypes.h
         src/main/libs/Stack.h
         src/main/libs/BinarySearchUtils.h
         )
@@ -53,4 +55,7 @@ set(RUN_SOURCE_FILES
 add_executable(run ${RUN_SOURCE_FILES})
 
 # resources file copy , only use for testing (can't use for main as we want to monitor them )
-FILE(COPY src/resources/libs/graph_input.txt DESTINATION "${CMAKE_BINARY_DIR}/CMakeFiles/run.dir")
+FILE(COPY src/resources/libs/graph_input.txt DESTINATION "${CMAKE_BINARY_DIR}")
+FILE(COPY src/resources/libs/graph_input_adjlist.txt DESTINATION "${CMAKE_BINARY_DIR}")
+FILE(COPY src/resources/libs/graph_input_adjmatrix.txt DESTINATION "${CMAKE_BINARY_DIR}")
+FILE(COPY src/resources/libs/graph_input_edgelist.txt DESTINATION "${CMAKE_BINARY_DIR}")

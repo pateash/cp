@@ -5,7 +5,6 @@
 #include "libs/BitsUtils.h"
 #include "libs/CommonLibs.h"
 #include "libs/FenwickTree.h"
-#include "libs/graph/Graph.h"
 #include "libs/LinkedList.h"
 #include "libs/MathsUtils.h"
 #include "libs/ModArithmetic.h"
@@ -18,6 +17,9 @@
 #include "libs/StringUtils.h"
 #include "libs/UnionFind.h"
 #include "libs/GenerateUtils.h"
+#include "libs/graph/GraphTypes.h"
+#include "libs/graph/GraphTraversal.h"
+
 using namespace std;
 
 void runTests(){
@@ -29,7 +31,8 @@ void runTests(){
     testLinkedList();
     testSegmentTree();
     testSorting();
-    testGraph();
+    testGraphTypes();
+    testGraphTraversals();
 }
 
 int main(){
