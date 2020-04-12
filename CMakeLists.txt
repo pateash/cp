@@ -46,3 +46,12 @@ set(TEST_SOURCE_FILES
         )
 
 add_executable(test ${TEST_SOURCE_FILES})
+
+
+
+set(RUN_SOURCE_FILES
+        src/run.cpp
+        src/libs/CommonLibs.h
+        )
+
+add_executable(run ${RUN_SOURCE_FILES})
