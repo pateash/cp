@@ -9,6 +9,7 @@
 #include<iostream>
 #include<cstdio>
 #include <cmath>
+#include <cassert>
 #include<cstring>
 #include<climits>
 #include<algorithm>
