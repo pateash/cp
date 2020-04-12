@@ -24,5 +24,5 @@ jobs:
     - name: cmake
       run: cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/runner/work/code/code"
     - name: cmake build
-      run: cmake --build "." --target code -- -j 2 # this will build code and test for any compilation error
+      run: cmake --build "." --target test -- -j 2 # this will build code and test for any compilation error
 
