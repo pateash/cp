@@ -47,10 +47,10 @@ set(TEST_SOURCE_FILES
 
 add_executable(test ${TEST_SOURCE_FILES})
 
-
-
 set(RUN_SOURCE_FILES
         src/main/run.cpp
         )
-
 add_executable(run ${RUN_SOURCE_FILES})
+
+# resources file copy , only use for testing (can't use for main as we want to monitor them )
+FILE(COPY src/resources/libs/graph_input.txt DESTINATION "${CMAKE_BINARY_DIR}/CMakeFiles/run.dir")
