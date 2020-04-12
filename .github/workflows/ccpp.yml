@@ -9,7 +9,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-16.04, ubuntu-18.04]
-        cpp-version: [gcc-4.8, gcc-6, gcc-7, gcc-8, gcc-9]
+        cpp-version: [ gcc-6]
+#        cpp-version: [gcc-4.8, gcc-6, gcc-7, gcc-8, gcc-9]
         # gcc 4.8 -> c++11 ( default support )
         # gcc 6.1 -> c++ 14 ( default support )
         # gcc 7 -> c++ 17
@@ -22,7 +23,7 @@ jobs:
              sudo apt install ${{ matrix.cpp-version }}
       shell: bash
     - name: cmake
-      run: cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/runner/work/code/code"
+      run: cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/runner/work/code/test"
     - name: cmake build
       run: cmake --build "." --target test -- -j 2 # this will build code and test for any compilation error
 
