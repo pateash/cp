@@ -27,6 +27,8 @@ void runTests(){
     testBitsUtils();
     testGenerateUtils();
     testLinkedList();
+    testSegmentTree();
+    testSorting();
 }
 
 /****  UnComment below to run tests, have to comment main in Main.cpp */

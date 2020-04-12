@@ -127,23 +127,25 @@ public:
 
 };
 
-#endif
-
 //range min query
-/* int main() {
 
+void testSegmentTree() {
     int n=10;
     vector<int> A;
     for(int i=0;i<n;i++) A.push_back(i+1); // stores 1 to 10
 
     SegmentTree S(A);
     cout<<S.rmq(0,3)<<endl;
+    assert(S.rmq(0,3) == 1);
     cout<<S.rmq(3,6)<<endl;
+    assert(S.rmq(3,6) == 4);
+
     S.updateRange(0,3,50);
     cout<<S.rmq(0,4)<<endl;
-    return 0;
+    assert(S.rmq(0,4) == 5);
+
 }
-*/
+#endif
 
 //output
 //1
