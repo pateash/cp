@@ -156,7 +156,7 @@ void testMathUtils(){
     );
 
 
-    assert( nCr(5,2) == 10
+    assert( nCr(5,2) == 100
             && nCr(5,1) == 5
             && nCr(10,3) == 120
     );
