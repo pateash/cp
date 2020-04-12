@@ -32,7 +32,7 @@
 #define vl vector<ll>
 #define ii pair<int,int>
 #define vii vector<ii>
-#define vvii vector<vector<ii>> // could be used for graph adjacencny list
+#define vvii vector<vector<ii>> // could be used for graph adjacency list
 
 //IO
 #define pr(n)  printf("%d",n)
@@ -136,11 +136,20 @@ template <typename T> void show_2d(T container){
 }
 template <typename T> void show_pair1d(T container){
     for(auto it=container.begin();it!=container.end();it++){
-        cout<<it->first<<" --> "<<it->second;
+        cout<<"["<<it->first<<","<<it->second<<"]";
         cout<<endl;
     }
     cout<<endl;
 }
+template <typename T> void show_pair2d(T container){
+    for(auto it=container.begin();it!=container.end();it++){
+        for(auto it2=it->begin();it2!=it->end();it2++)
+        cout<<"["<<it2->first<<","<<it2->second<<"],";
+        cout<<endl;
+    }
+    cout<<endl;
+}
+
 template <typename T,typename R> void show_pair(pair<T,R> p){
     cout<<p.first<<"-> "<<p.second<<endl;
 }
