@@ -30,7 +30,7 @@ public:
 
         sort(v.begin(),v.end()); // sorting ascending
 
-        show_1d(v);
+//        show_1d(v);
         int sum = 0;
 
         //  we are iterating from n-1 to 0 ( for + part, and we will then adjust other index)
@@ -38,15 +38,12 @@ public:
         {
             sum += (v[i]*(i) - v[i]*(v.size()-i-1));
         }
-        cout<<"sum: "<<sum<<endl;
+//        cout<<"sum: "<<sum<<endl;
         return sum;
     }
 };
 
-#endif
-
-/*
- int main()
+void testArrayUtils()
 {
     assert(
             ArrayUtils<int>::findSumOfAbsoluteDifferenceOfAllPairs({1,2,3,4,5})
@@ -56,6 +53,6 @@ public:
             == 17);
     cout<<"------------"<<endl;
 }
-*/
-/* OUTPUT
-*/
+#endif
+
+

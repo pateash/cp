@@ -85,7 +85,7 @@ public:
 
 };
 
-/* int main()
+void testBinarySearchUtils()
 {
    vi v={10,20,30,40,50};
 
@@ -125,10 +125,5 @@ public:
     //if the number is even smaller than the first element
     assert(10==v[BinarySearchUtils::binarySearchMaxOrEqual<int>(v,9)]);
 
-
-    return 0;
 }
-*/
-
-
 #endif

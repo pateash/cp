@@ -1,7 +1,7 @@
 #ifndef SAMPLE_GENERATE_UTILS_H
 #define SAMPLE_GENERATE_UTILS_H
 
-//#include "CommonLibs.h"
+#include "CommonLibs.h"
 
 class GenerateUtils{
 public:
@@ -28,5 +28,15 @@ public:
 
 };
 
+void testGenerateUtils(){
+    string s = GenerateUtils::generateRandomLowerCaseString(10);
+    assert(s.length()==10);
+
+    string s2 = GenerateUtils::generateRandomUpperCaseString(20);
+    assert(s2.length()==20);
+
+    assert(GenerateUtils::generateRandomInt(100) <= 100);
+
+}
 #endif
 

@@ -115,7 +115,7 @@ llu nCr(int n, int r) {
     return nCr(n-1,r) + nCr(n-1,r-1);
 }
 
-void mathUtilsTests(){
+void testMathUtils(){
 
     // gcd and lcm
     assert(gcd(10,25)==5

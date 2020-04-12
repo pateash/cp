@@ -170,7 +170,7 @@ public:
 
 };
 
-/* int main(){
+void testBitsUtils(){
 
     assert(BitsUtils::leftShiftByN(2,2)==8);
 
@@ -206,6 +206,5 @@ public:
 
     assert(BitsUtils::xnor(7,5)==5 && BitsUtils::xnor(10,20)==1 && BitsUtils::xnor(10,50)==7 );
 }
-*/
 
 #endif
