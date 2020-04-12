@@ -144,7 +144,7 @@ template <typename T> void show_pair1d(T container){
 template <typename T> void show_pair2d(T container){
     for(auto it=container.begin();it!=container.end();it++){
         for(auto it2=it->begin();it2!=it->end();it2++)
-        cout<<"["<<it2->first<<","<<it2->second<<"],";
+            cout<<"["<<it2->first<<","<<it2->second<<"],";
         cout<<endl;
     }
     cout<<endl;
@@ -198,30 +198,28 @@ void solve(){
     write(ans);
 }
 
-//int main(int argc, char *argv[]) {
-//
-//    // 1 args is passed by default, so if more than 1 passed
-//    // pass anything in args like 'test'
-//    if(argc>1) {
-//        string curdir = "/Users/ashish/Desktop/code/src/";
-//        if (
-//                freopen(string(curdir + "in.txt").c_str(), "r", stdin)
-//                &&
-//                freopen(string(curdir + "out.txt").c_str(), "w", stdout)
-//                );
-//        else {
-//            cout << "ERROR: " << strerror(errno) << endl;
-//            exit(0);
-//        }
-//    }
-//
-////    test_working();
-////    clock_t t1=clock(),t2;
-//    int t = read(int);
-//    while(t--){
-//        solve();
-//    }
-////    t2=clock();
-//    //   cout<<endl<<"time is "<<(t2-t1)/(1.0*CLOCKS_PER_SEC)<<" seconds"<<endl;
-//    return 0;
-//}
+int main(int argc, char *argv[]) {
+
+#ifndef ONLINE_JUDGE
+    string curdir = "/Users/ashish/Desktop/code/src/";
+    if (
+            freopen(string(curdir + "in.txt").c_str(), "r", stdin)
+            &&
+            freopen(string(curdir + "out.txt").c_str(), "w", stdout)
+            );
+    else {
+        cout << "ERROR: " << strerror(errno) << endl;
+        exit(0);
+    }
+#endif
+
+//    test_working();
+//    clock_t t1=clock(),t2;
+    int t = read(int);
+    while(t--){
+        solve();
+    }
+//    t2=clock();
+    //   cout<<endl<<"time is "<<(t2-t1)/(1.0*CLOCKS_PER_SEC)<<" seconds"<<endl;
+    return 0;
+}

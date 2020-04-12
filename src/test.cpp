@@ -31,9 +31,7 @@ void runTests(){
     testSorting();
 }
 
-/****  UnComment below to run tests, have to comment main in Main.cpp */
-
-int main(int argc, char *argv[]) {
-    runTests();
-    return 0;
-}
+/****** UNCOMMENT THIS TO RUN TESTS */
+//int main(){
+//    runTests();
+//}
