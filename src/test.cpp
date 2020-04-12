@@ -31,7 +31,11 @@ void runTests(){
     testSorting();
 }
 
-/****** UNCOMMENT THIS TO RUN TESTS */
-//int main(){
-//    runTests();
-//}
+int main(){
+    puts("RUNNING TESTS");
+    puts("*********************\n");
+    runTests();
+    puts("\n\nAll Tests done!");
+    puts("*********************");
+
+}

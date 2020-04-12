@@ -6,7 +6,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 set(SOURCE_FILES
         src/main.cpp
         src/template.cpp
-        src/test.cpp
         src/libs/CommonLibs.h
         src/libs/MathsUtils.h
         src/libs/Primes.h
@@ -25,3 +24,25 @@ set(SOURCE_FILES
         )
 
 add_executable(code ${SOURCE_FILES})
+
+
+set(TEST_SOURCE_FILES
+        src/test.cpp
+        src/libs/CommonLibs.h
+        src/libs/MathsUtils.h
+        src/libs/Primes.h
+        src/libs/UnionFind.h
+        src/libs/SegmentTree.h
+        src/libs/SegmentTreeLazy.h
+        src/libs/FenwickTree.h
+        src/libs/ModArithmetic.h
+        src/libs/Sorting.h
+        src/libs/BinarySearchTree.h
+        src/libs/StringUtils.h
+        src/libs/BitsUtils.h
+        src/libs/Graph.h
+        src/libs/Stack.h
+        src/libs/BinarySearchUtils.h
+        )
+
+add_executable(test ${TEST_SOURCE_FILES})
