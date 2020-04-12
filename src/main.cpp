@@ -8,6 +8,7 @@
 #include<cstdio>
 #include <cmath>
 #include<cstring>
+#include <cassert>
 #include<climits>
 #include<algorithm>
 #include <functional>
