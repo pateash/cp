@@ -8,10 +8,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-16.04]
-#        os: [ubuntu-16.04, ubuntu-18.04]
-        cpp-version: [ gcc-6]
-#        cpp-version: [gcc-4.8, gcc-6, gcc-7, gcc-8, gcc-9]
+        os: [ubuntu-16.04, ubuntu-18.04]
+        cpp-version: [gcc-4.8, gcc-6, gcc-7, gcc-8, gcc-9]
         # gcc 4.8 -> c++11 ( default support )
         # gcc 6.1 -> c++ 14 ( default support )
         # gcc 7 -> c++ 17
