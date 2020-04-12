@@ -10,16 +10,16 @@
 
 //these will be used to store results for euclid's extendex algorithm
 int x,y,d;
-long long powerMod(int i,int c,int MOD){
+long long powerMod(int i,int c,int mod){
     if(c==0) return 1;
     if (c==1) {
-        return i%MOD;
+        return i%mod;
     }
     /*ans is required long long, as ans*ans might get heavy
      * before mod applied */
-    long long ans=powerMod(i,c/2,MOD);
-    ans=(ans*ans)%MOD;
-    if(c%2==1) ans=(ans*i)%MOD;
+    long long ans=powerMod(i,c/2, mod);
+    ans= (ans*ans) % mod;
+    if(c%2==1) ans= (ans*i) % mod;
     return ans;
 }
 void extendedEuclid(int a,int b) {

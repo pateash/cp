@@ -159,10 +159,8 @@ public: // made every thing public so we could create loop and stuff for testing
     }
 };
 
-#endif
 
-/*
-int main()
+void testLinkedList()
 {
     cout<<"------------ LinkedList1"<<endl;
     LinkedList<int> linkedList;
@@ -229,9 +227,9 @@ int main()
     linkedList3.display(8);
     linkedList3.detectAndBreakLoop();
     linkedList3.display(8);
-    return 0;
 }
-*/
+ #endif
+
 /*
 OUTPUT
 ----------

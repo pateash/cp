@@ -21,11 +21,13 @@ The phase will look if all numbers are negative, if they are it will return maxi
 */
 
 
+// Also check onenote for more insights
+
 
 int maxSubArraySum(int arr[],int n){
    int max_sofar;//represents maximum sum so far obtained
    int start_sofar,end_sofar;//represents starting and ending indexes of till find subarray
-   
+
    int max_this_subarray;//represents maximum sum for present subarray
    int start_this,end_this;//represents start and end index of this subarray
 

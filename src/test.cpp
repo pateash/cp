@@ -17,9 +17,25 @@
 #include "libs/Stack2.h"
 #include "libs/StringUtils.h"
 #include "libs/UnionFind.h"
+#include "libs/GenerateUtils.h"
+using namespace std;
 
-//using namespace std;
-//int main(int argc, char *argv[]) {
-//
-//    return 0;
-//}
+void runTests(){
+    testMathUtils();
+    testArrayUtils();
+    testBinarySearchUtils();
+    testBitsUtils();
+    testGenerateUtils();
+    testLinkedList();
+    testSegmentTree();
+    testSorting();
+}
+
+int main(){
+    puts("RUNNING TESTS");
+    puts("*********************\n");
+    runTests();
+    puts("\n\nAll Tests done!");
+    puts("*********************");
+
+}

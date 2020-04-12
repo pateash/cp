@@ -45,16 +45,16 @@ void quick_sort(vector<T> &v, int low,int high){
     quick_sort(v,pivot+1,high);
 }
 
-/* int main()
+void testSorting()
 {
     vi v = {10, 7, 8, 9, 1, 5};
     quick_sort(v, 0, v.size()-1);
+    vi ans = { 1, 5, 7, 8, 9,10};
 
     for (int i = 0; i < v.size(); ++i) {
         cout<<v[i]<<" ";
+        assert(v[i]==ans[i]);
     }
-    return 0;
 }
-*/
 
 #endif

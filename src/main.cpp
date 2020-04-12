@@ -1,7 +1,14 @@
+/*
+* Author : Ashish Patel
+* Handle: ashishpatel0720
+*/
+
+/********   All Required Header Files ********/
 #include<iostream>
 #include<cstdio>
 #include <cmath>
 #include<cstring>
+#include <cassert>
 #include<climits>
 #include<algorithm>
 #include <functional>
@@ -26,7 +33,7 @@
 #define vl vector<ll>
 #define ii pair<int,int>
 #define vii vector<ii>
-#define vvii vector<vector<ii>> // could be used for graph adjacencny list
+#define vvii vector<vector<ii>> // could be used for graph adjacency list
 
 //IO
 #define pr(n)  printf("%d",n)
@@ -46,15 +53,55 @@
 #define repi(i,n) for(int (i)=0;(i)<n;(i)++)
 #define repit(c) for(auto it=(c).begin();it!=(c).end();it++)
 //reading all once
-#define read(n) int n;sc(n)
-#define readll(n) ll n;scll(n)
-#define readllu(n) llu n;scllu(n)
-#define readf(n) float n;scf(n)
-#define readd(n) double n;scd(n)
 #define call(c) (c).begin(),(c).end()
+#define MOD int(1e9+7)
+#define INF int(1e9+1)
 //debug
 using namespace std;
 
+/****** Template of Fast I/O Methods *********/
+
+#define write(x) writeValue(x,'\n')
+#define write2(x) writeValue(x,' ') // end with space
+
+template <typename T> inline void writeValue(T x, char end)
+{
+    int i = 20;
+    char buf[21];
+    // buf[10] = 0;
+    buf[20] = end;
+
+    do
+    {
+        buf[--i] = x % 10 + '0';
+        x/= 10;
+    }while(x);
+    do
+    {
+        putchar(buf[i]);
+    } while (buf[i++] != end);
+}
+
+#define read(type) readInt<type>()
+template <typename T> inline T readInt()
+{
+    T n=0,s=1;
+    char p=getchar();
+    if(p=='-')
+        s=-1;
+    while((p<'0'||p>'9')&&p!=EOF&&p!='-')
+        p=getchar();
+    if(p=='-')
+        s=-1,p=getchar();
+    while(p>='0'&&p<='9') {
+        n = (n<< 3) + (n<< 1) + (p - '0');
+        p=getchar();
+    }
+
+    return n*s;
+}
+
+/****** Template Debugs *********/
 #define DEBUG(a) std::cerr<<#a<<" : "<<a<<std::endl;
 
 #define DEBUGN(args...)     (Debugger()) , args
@@ -79,7 +126,6 @@ private:
     std::string separator;
 };
 
-
 //testing functions
 template <typename T> void show_2d(T container){
     for(auto it=container.begin();it!=container.end();it++){
@@ -91,11 +137,20 @@ template <typename T> void show_2d(T container){
 }
 template <typename T> void show_pair1d(T container){
     for(auto it=container.begin();it!=container.end();it++){
-        cout<<it->first<<" --> "<<it->second;
+        cout<<"["<<it->first<<","<<it->second<<"]";
         cout<<endl;
     }
     cout<<endl;
 }
+template <typename T> void show_pair2d(T container){
+    for(auto it=container.begin();it!=container.end();it++){
+        for(auto it2=it->begin();it2!=it->end();it2++)
+            cout<<"["<<it2->first<<","<<it2->second<<"],";
+        cout<<endl;
+    }
+    cout<<endl;
+}
+
 template <typename T,typename R> void show_pair(pair<T,R> p){
     cout<<p.first<<"-> "<<p.second<<endl;
 }
@@ -134,37 +189,34 @@ void test_working(){
 
 
 void solve(){
-    read(n);
-
-    DEBUG(n);
+    int n= read(int);
 
     vi v(n);
-    rep(n) sc(v[i]);
+    rep(n) v[i]=read(int);
 
-    DEBUGN(0,1,2);
 
+    int ans;
+    write(ans);
 }
 
 int main(int argc, char *argv[]) {
 
-    // 1 args is passed by default, so if more than 1 passed
-    // pass anything in args like 'test'
-    if(argc>1) {
-        string curdir = "/Users/ashish/Desktop/code/src/";
-        if (
-                freopen(string(curdir + "in.txt").c_str(), "r", stdin)
-                &&
-                freopen(string(curdir + "out.txt").c_str(), "w", stdout)
-                );
-        else {
-            cout << "ERROR: " << strerror(errno) << endl;
-            exit(0);
-        }
+#ifndef ONLINE_JUDGE
+    string curdir = "/Users/ashish/Desktop/code/src/";
+    if (
+            freopen(string(curdir + "in.txt").c_str(), "r", stdin)
+            &&
+            freopen(string(curdir + "out.txt").c_str(), "w", stdout)
+            );
+    else {
+        cout << "ERROR: " << strerror(errno) << endl;
+        exit(0);
     }
+#endif
 
 //    test_working();
 //    clock_t t1=clock(),t2;
-    read(t);
+    int t = read(int);
     while(t--){
         solve();
     }
