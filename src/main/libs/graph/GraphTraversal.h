@@ -33,6 +33,27 @@ void bfs(int u, vvii& AdjList,vi& tracker, vi&output){
     }
 }
 
+
+void bfs_ssp(int u, vvii& AdjList,vi& distance){
+    // start from u, add it to the queue and  continue until queue is not empty
+    queue<int> q;
+    q.push(u); // add source
+    distance[u]=0; //add its distance from source = 1
+
+    while(!q.empty()){
+        int x=q.front();q.pop();
+        for(auto p:AdjList[x]){
+            int e = p.first;
+            if(distance[e]==INF){ // if not reached yet
+                distance[e]=distance[x]+1; // distance will be neighbour + 1
+                q.push(e);
+            }
+        }
+    }
+
+}
+
+
 void dfs(int u, vvii& AdjList ,vi& dfs_num, vi&output){
     dfs_num[u]=VISITED;
     output.push_back(u);
@@ -118,7 +139,7 @@ void testGraphTraversals() {
     puts("*************");
     output.clear();
     expected_output={0,1,4,2,3,5};
-    tracker.assign(V,UNVISITED);
+    tracker.assign(V,UNVISITED); //distance of all from source (u)
 
     bfs(0, AdjList,tracker,output); // start from zero
 
@@ -128,6 +149,31 @@ void testGraphTraversals() {
         assert(output[i]==expected_output[i]);
     }
     nl;
+
+
+/****
+ BFS could be used to find single source sortest path if all the weights are 1 ( or there are no weights)
+ in place of tracker, here we will use distance array ( initally all are INF )
+ * */
+    puts("*************");
+    puts("BFS SSP");
+    puts("*************");
+    output.clear();
+    expected_output={0,1,2,2,1,3};
+    vi distance(V,INF);
+
+
+    // Note - even though in input file we do have weights,
+    // we are just using all weight as 1
+    bfs_ssp(0, AdjList,distance); // start from zero
+
+    assert(expected_output.size()==distance.size());
+    for(int i=0;i<distance.size();i++) {
+        write2(distance[i]);
+        assert(distance[i]==expected_output[i]);
+    }
+    nl;
+
 }
 
 #endif
