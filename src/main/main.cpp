@@ -82,11 +82,17 @@ template <typename T> inline void writeValue(T x, char end)
     } while (buf[i++] != end);
 }
 
-#define read(type) readInt<type>()
-template <typename T> inline T readInt()
+// works for only int types(long not float and double) and char
+#define read(type) readIntChar<type>()
+template <typename T> inline T readIntChar()
 {
     T n=0,s=1;
     char p=getchar();
+
+    // added support for char type, only work for a-zA-Z, as these can't be in integer
+    if(!isdigit(p) && p !='-') // numbers can only have - sign or 0-9
+        return p;
+
     if(p=='-')
         s=-1;
     while((p<'0'||p>'9')&&p!=EOF&&p!='-')
