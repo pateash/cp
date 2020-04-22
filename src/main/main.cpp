@@ -90,7 +90,7 @@ template <typename T> inline T readIntChar()
     char p=getchar();
 
     // added support for char type, only work for a-zA-Z, as these can't be in integer
-    if(!isdigit(p) && p !='-') // numbers can only have - sign or 0-9
+    if(isalpha(p))  // if want to take anything else use scanf()
         return p;
 
     if(p=='-')
