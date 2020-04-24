@@ -83,6 +83,42 @@ public:
         return binarySearchMaxOrEqualUtility(0,v.size()-1,v,value);
     }
 
+    template<typename T>
+    static T upperBound(vector<T>& v, T value){
+        T ans=-1;// keep INT_MAX for int and LONG_MAX for long
+        int low=0,high=v.size()-1;
+
+        while(low<=high){
+            int mid=low + (high-low)/2; // works and avoids overflow incase low+high > INT_MAX
+            DEBUGN(low,mid,high);
+            if(v[mid] <=value){ // first v[mid] >=value
+                ans=max(ans,v[mid]);
+                low=mid+1;
+            }else{
+                high = mid - 1; // go and check if we able to find anything smaller
+            }
+        }
+        return ans;
+    }
+
+    template<typename T>
+    // works and avoids overflow incase low+high > INT_MAX
+    static T lowerBound(vector<T>& v, T value){
+        T ans=INF;// keep INT_MAX for int and LONG_MAX for long
+        int low=0,high=v.size()-1;
+
+        while(low<=high){
+            int mid=low + (high-low)/2;
+            if(v[mid] >=value){ // first v[mid] >=value
+                ans=min(ans,v[mid]);
+                high = mid - 1; // go and check if we able to find anything smaller
+            }else{
+                low=mid+1;
+            }
+        }
+        return ans;
+    }
+
 };
 
 void testBinarySearchUtils()
@@ -124,6 +160,32 @@ void testBinarySearchUtils()
 
     //if the number is even smaller than the first element
     assert(10==v[BinarySearchUtils::binarySearchMaxOrEqual<int>(v,9)]);
+
+
+    // LOWER BOUND, value>=x
+    assert(30==BinarySearchUtils::lowerBound<int>(v,30));
+    assert(30==BinarySearchUtils::lowerBound<int>(v,21));
+    assert(40==BinarySearchUtils::lowerBound<int>(v,31));
+
+    //if the number is even smaller than the first element, Index is invalid
+    assert(10==BinarySearchUtils::lowerBound<int>(v,9));
+
+    //if the number is even larger than the last element
+    assert(INF==BinarySearchUtils::lowerBound<int>(v,9999));
+
+
+
+//    vi v={10,20,30,40,50};
+
+    cout<<BinarySearchUtils::upperBound<int>(v,30)<<endl;
+    cout<<BinarySearchUtils::upperBound<int>(v,21)<<endl;
+    cout<<BinarySearchUtils::upperBound<int>(v,31)<<endl;
+
+    //if the number is even smaller than the first element, Index is invalid
+    cout<<BinarySearchUtils::upperBound<int>(v,9)<<endl;
+
+    //if the number is even larger than the last element
+    cout<<BinarySearchUtils::upperBound<int>(v,9999)<<endl;
 
 }
 #endif
