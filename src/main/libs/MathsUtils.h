@@ -115,6 +115,33 @@ llu nCr(int n, int r) {
     return nCr(n-1,r) + nCr(n-1,r-1);
 }
 
+/*
+ * NO. of perfect squares between A and B (inclusive)
+ *
+ * source - https://www.geeksforgeeks.org/find-number-perfect-squares-two-given-numbers/
+
+ floor(sqrt(b)) - ceil(sqrt(a)) + 1
+
+    We take floor of sqrt(b) because we need to consider
+    numbers before b.
+
+    We take ceil of sqrt(a) because we need to consider
+    numbers after a.
+
+    For example, let b = 24, a = 8.  floor(sqrt(b)) = 4,
+    ceil(sqrt(a)) = 3.  And number of squares is 4 - 3 + 1
+    = 2. The two numbers are 9 and 16.
+ * */
+
+ll numberOfPerfectSquaresBw(ll a, ll b){
+    // note - sqrt() doesn't work for long long some so use sqrtl() instead.
+    // if we do not want to include both just remove +1, same as simple range count;
+    ll ans=floor(sqrtl(b)) - ceil(sqrtl(a)) + 1;
+    return ans;
+}
+
+
+
 void testMathUtils(){
 
     // gcd and lcm
@@ -160,6 +187,10 @@ void testMathUtils(){
             && nCr(5,1) == 5
             && nCr(10,3) == 120
     );
-}
 
+    assert(numberOfPerfectSquaresBw(1,100) == 10
+    &&
+     numberOfPerfectSquaresBw(9,25) == 3
+    );
+}
 #endif
