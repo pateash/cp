@@ -202,7 +202,8 @@ void solve(){
 int main(int argc, char *argv[]) {
 
 #ifndef ONLINE_JUDGE
-    string curdir = "/Users/ashish/Desktop/code/src/";
+//    pass the path in command line args eg. '/Users/ashish/Desktop/code/src/'
+    string curdir = argv[1];
     if (
             freopen(string(curdir + "in.txt").c_str(), "r", stdin)
             &&
