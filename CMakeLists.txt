@@ -4,45 +4,58 @@ project(code)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 set(SOURCE_FILES
-        src/main.cpp
-        src/template.cpp
-        src/libs/CommonLibs.h
-        src/libs/MathsUtils.h
-        src/libs/Primes.h
-        src/libs/UnionFind.h
-        src/libs/SegmentTree.h
-        src/libs/SegmentTreeLazy.h
-        src/libs/FenwickTree.h
-        src/libs/ModArithmetic.h
-        src/libs/Sorting.h
-        src/libs/BinarySearchTree.h
-        src/libs/StringUtils.h
-        src/libs/BitsUtils.h
-        src/libs/Graph.h
-        src/libs/Stack.h
-        src/libs/BinarySearchUtils.h
+        src/main/main.cpp
+        src/main/template.cpp
+        src/main/libs/CommonLibs.h
+        src/main/libs/MathsUtils.h
+        src/main/libs/Primes.h
+        src/main/libs/UnionFind.h
+        src/main/libs/SegmentTree.h
+        src/main/libs/SegmentTreeLazy.h
+        src/main/libs/FenwickTree.h
+        src/main/libs/ModArithmetic.h
+        src/main/libs/Sorting.h
+        src/main/libs/BinarySearchTree.h
+        src/main/libs/StringUtils.h
+        src/main/libs/BitsUtils.h
+        src/main/libs/graph/GraphTraversal.h
+        src/main/libs/graph/GraphTypes.h
+        src/main/libs/Stack.h
+        src/main/libs/BinarySearchUtils.h
         )
 
 add_executable(code ${SOURCE_FILES})
 
 
 set(TEST_SOURCE_FILES
-        src/test.cpp
-        src/libs/CommonLibs.h
-        src/libs/MathsUtils.h
-        src/libs/Primes.h
-        src/libs/UnionFind.h
-        src/libs/SegmentTree.h
-        src/libs/SegmentTreeLazy.h
-        src/libs/FenwickTree.h
-        src/libs/ModArithmetic.h
-        src/libs/Sorting.h
-        src/libs/BinarySearchTree.h
-        src/libs/StringUtils.h
-        src/libs/BitsUtils.h
-        src/libs/Graph.h
-        src/libs/Stack.h
-        src/libs/BinarySearchUtils.h
+        src/main/test.cpp
+        src/main/libs/CommonLibs.h
+        src/main/libs/MathsUtils.h
+        src/main/libs/Primes.h
+        src/main/libs/UnionFind.h
+        src/main/libs/SegmentTree.h
+        src/main/libs/SegmentTreeLazy.h
+        src/main/libs/FenwickTree.h
+        src/main/libs/ModArithmetic.h
+        src/main/libs/Sorting.h
+        src/main/libs/BinarySearchTree.h
+        src/main/libs/StringUtils.h
+        src/main/libs/BitsUtils.h
+        src/main/libs/graph/GraphTraversal.h
+        src/main/libs/graph/GraphTypes.h
+        src/main/libs/Stack.h
+        src/main/libs/BinarySearchUtils.h
         )
 
 add_executable(test ${TEST_SOURCE_FILES})
+
+set(RUN_SOURCE_FILES
+        src/main/run.cpp
+        )
+add_executable(run ${RUN_SOURCE_FILES})
+
+# resources file copy , only use for testing (can't use for main as we want to monitor them )
+FILE(COPY src/resources/libs/graph_input.txt DESTINATION "${CMAKE_BINARY_DIR}")
+FILE(COPY src/resources/libs/graph_input_adjlist.txt DESTINATION "${CMAKE_BINARY_DIR}")
+FILE(COPY src/resources/libs/graph_input_adjmatrix.txt DESTINATION "${CMAKE_BINARY_DIR}")
+FILE(COPY src/resources/libs/graph_input_edgelist.txt DESTINATION "${CMAKE_BINARY_DIR}")
