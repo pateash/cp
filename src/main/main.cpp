@@ -161,11 +161,11 @@ template <typename T,typename R> void show_pair(pair<T,R> p){
     cout<<p.first<<"-> "<<p.second<<endl;
 }
 template <typename T> void show_1d(T &container){
-    cout<<"data in container is: "<<endl;
+    cout<<"[";
     for(auto it=container.begin();it!=container.end();it++){
-        cout<<*it<<" ";
+        cout<<*it<<", ";
     }
-    cout<<endl;
+    cout<<"]"<<endl;
 }
 template <typename  T> void show_arr(T arr[],int size){
     cout<<"content in array is here"<<endl;

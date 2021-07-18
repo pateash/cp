@@ -11,17 +11,17 @@
  * sieve of erorsthenesis
  * O(nlog(log(n))
  */
-#define SIEVE_LIMIT int(1e7+10) //must be some greater than 'upperbound'
+#define SIEVE_LIMIT int(1e7+10) //must be some greater than 'max_number'
 class Sieve{
 private:
-    long long _sieve_size; // size for bitset[0....upperbound] for storing 0/1
+    long long _sieve_size; // size for bitset[0....max_number] for storing 0/1
     bitset<SIEVE_LIMIT>bs; //10^7 should be enough for most cases _sieve_size<10^7
-    vector<long long> primes;//storing all primes from [2..upperbound]
+    vector<long long> primes;//storing all primes from [2..max_number]
 
 public:
-    Sieve(long long  upperbound){
-        //building list of primes from [2..upperbound]
-        _sieve_size=upperbound+1; //from 0 to upperbound
+    Sieve(long long  max_number){
+        //building list of primes from [2..max_number]
+        _sieve_size= max_number + 1; //from 0 to max_number
         bs.set(); //set all to prime
         bs[0]=bs[1]=0; //0 and 1 are not prime
 
@@ -36,7 +36,7 @@ public:
     }
 
     void printPrimes(){
-        //print Primes from 2 to upperbound
+        //print Primes from 2 to max_number
         for(auto p:primes)
             cout<<p<<"\n";
         cout<<endl;
@@ -45,7 +45,7 @@ public:
     bool isPrimeSieve(long long N){
         if(N<=_sieve_size) return bs[N];
 
-        //if it is not inside the upperbound
+        //if it is not inside the max_number
         // we can use stored primes to find if it is prime or not
         // only can check if N<=(largest Prime)^2
 
