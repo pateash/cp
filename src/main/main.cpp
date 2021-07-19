@@ -35,17 +35,6 @@
 #define vii vector<ii>
 #define vvii vector<vector<ii>> // could be used for graph adjacency list
 
-//IO
-#define pr(n)  printf("%d",n)
-#define prl(n) printf("%lld",n)
-#define prf(n) printf("%f",n)
-#define nl printf("\n")
-#define sp printf(" ")
-#define sc(n)  scanf("%d",&n)
-#define scll(n) scanf("%lld",&n)
-#define scllu(n) scanf("%llu",&n)
-#define scf(n) scanf("%f",&n)
-#define scd(n) scanf("%lf",&n)
 //function and loops
 #define mp make_pair
 #define repab(a,b) for(int i=(a);i<(b);i++)
