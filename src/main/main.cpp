@@ -59,53 +59,6 @@
 //debug
 using namespace std;
 
-/****** Template of Fast I/O Methods *********/
-
-#define write(x) writeValue(x,'\n')
-#define write2(x) writeValue(x,' ') // end with space
-
-template <typename T> inline void writeValue(T x, char end)
-{
-    int i = 20;
-    char buf[21];
-    // buf[10] = 0;
-    buf[20] = end;
-
-    do
-    {
-        buf[--i] = x % 10 + '0';
-        x/= 10;
-    }while(x);
-    do
-    {
-        putchar(buf[i]);
-    } while (buf[i++] != end);
-}
-
-// works for only int types(long not float and double) and char
-#define read(type) readIntChar<type>()
-template <typename T> inline T readIntChar()
-{
-    T n=0,s=1;
-    char p=getchar();
-
-    // added support for char type, only work for a-zA-Z, as these can't be in integer
-    if(isalpha(p))  // if want to take anything else use scanf()
-        return p;
-
-    if(p=='-')
-        s=-1;
-    while((p<'0'||p>'9')&&p!=EOF&&p!='-')
-        p=getchar();
-    if(p=='-')
-        s=-1,p=getchar();
-    while(p>='0'&&p<='9') {
-        n = (n<< 3) + (n<< 1) + (p - '0');
-        p=getchar();
-    }
-
-    return n*s;
-}
 
 /****** Template Debugs *********/
 #define DEBUG(a) std::cerr<<#a<<" : "<<a<<std::endl;
@@ -193,22 +146,26 @@ void test_working(){
     exit(EXIT_SUCCESS);
 }
 
-
 void solve(){
-    int n= read(int);
+
+    int n;
+    cin>>n;
 
     vi v(n);
-    rep(n) v[i]=read(int);
+    rep(n) cin>>v[i];
 
+    int ans = 0;
 
-    int ans;
-    write(ans);
+    cout<<ans<<endl;
 }
 
 int main(int argc, char *argv[]) {
 
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
 #ifndef ONLINE_JUDGE
-//    pass the path in command line args eg. '/Users/ashish/Desktop/code/src/'
+//    pass the path to resources in command line args eg. '/Users/ashish/Desktop/code/src/resources/'
     string curdir = argv[1];
     if (
             freopen(string(curdir + "in.txt").c_str(), "r", stdin)
@@ -221,9 +178,10 @@ int main(int argc, char *argv[]) {
     }
 #endif
 
-//    test_working();
+    test_working();
 //    clock_t t1=clock(),t2;
-    int t = read(int);
+    int t;
+    cin>>t;
     while(t--){
         solve();
     }
