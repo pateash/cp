@@ -123,7 +123,11 @@ public:
         // and will be 0 (only if num is power of 2)
 
       // NOTE -  num & (num - 1) == 0 will not work as == has more priority that &
-        return (num & (num - 1)) == 0;
+      //        return (num & (num - 1)) == 0;
+      // above will consider 0 and 1 as a power of 2, if we want to test that To fix that use
+
+        return  !(num & (num - 1)) && num;
+
     }
     static int findModuloIfNisPowerOf2(int num,int N){
         if(!isPowerOf2(N)){
