@@ -99,7 +99,7 @@ public:
         return ans;
     }
 
-    // this  is also called lowerbound
+    // this  is also called lowerbound - start of the range of similar elements, as we know upperbound is the pointer pointing the end of the range.
     // works and avoids overflow incase low+high > INT_MAX
     template<typename T>
     static T binarySearchGreaterOrEqualv2(vector<T> &v, T value) {
