@@ -17,7 +17,7 @@
  */
 
 // it is possible to keep INVALID and LAZY_DEFAULT same, but its better to keep them different
-//#define INVALID -999999  //invalid will be something which can't be ther be there in segment tree
+#define INVALID -999999  //invalid will be something which can't be ther be there in segment tree
 #define LAZY_DEFAULT -1 //lazy default could be something which can't be there in lazy
 
 //INVALID will be used in query() to find which part is correct and not out of bound also could be used to initially set values in SegmentTree
@@ -40,7 +40,7 @@ class SegmentTreeLazy{
     }
 
     //this function will do lazy update when we reach at that node in segment tree in query or update
-    void lazy_update(int p,int l,int r){
+    void  lazy_update(int p,int l,int r){
         if(lazy[p]!=LAZY_DEFAULT){
 
             //yaha tak aaye to update kardo
