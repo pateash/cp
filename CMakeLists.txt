@@ -6,6 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 set(SOURCE_FILES
         src/main/main.cpp
 #        src/main/main_fastio.cpp
+        src/main/leetcode.cpp
         src/main/template.cpp
         src/main/libs/CommonLibs.h
         src/main/libs/MathsUtils.h
