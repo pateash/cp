@@ -9,7 +9,9 @@ obj/
 ignore/
 include/
 .idea/
-
+Resources/
+*.iml
+*.plist
 # storing run configurations
 !.idea/runConfigurations
 
