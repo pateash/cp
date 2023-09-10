@@ -18,7 +18,8 @@ private:
     int n;
     /*
      * there are two kinds of indexes here
-     * 1 - i,j which is for navigating into underlying array
+     * 1.1 - i,j which is for navigating into underlying array for querying
+     * 1.2 - L,R which is for navigating into underlying array for corresponding 'p'
      * 2 - p which is for navigating to segment tree
     */
     int left(int p){
@@ -38,7 +39,7 @@ private:
         build(left(p),l,(l+r)/2);
         build(right(p),(l+r)/2+1,r);
         st[p]=min(st[left(p)],st[right(p)]);
-        //we storing value as it works always( in all types of problems like range sum) , and index works only when we have to find single value
+        //we are storing value as it works always( in all types of problems like range sum) , and index works only when we have to find single value
     }
 
     int rmq(int p,int l,int r,int i,int j){
