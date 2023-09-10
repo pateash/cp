@@ -63,17 +63,17 @@ private:
     }
 
     void updateRange(int p,int l,int r,int i,int j,int value){
-        //here we really updating value and not looking on lazy things etc.
-        //we just update value and coming back we will just find min. of two childs
-        // to get min again
+        //here we're really updating value and not looking on lazy things etc.
+        //we just update value and coming back we will just find min. of two children
+        // to get min again coming back
         if( l>j || r<i ) //out of range
             return; //not thing has to be done
 
         /*
-         * NOTE- here important thing to note is that if we are not using any lazy
+         * NOTE-here important thing to note is that if we are not using any lazy
          *         kind of thing, then it is not possible to check for condition
          *         if(l>=i && r<=j)  //this segment is inside what is required,
-         *         and update whole array at once, because in this way underlying segment tree will
+         *         and update whole array at once, because in this way underlying segment tree
          *         will never get updated, so either we have to rebuild it , which will take much more time(nlog(n)),
          *         or a better option to just go to every individual element and update it, in this way when we come
          *         upward we will automatically update our underlying tree.
