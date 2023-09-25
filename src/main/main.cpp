@@ -167,7 +167,7 @@ int main(int argc, char *argv[]) {
     }
 #endif
 
-    test_working();
+//    test_working();
 //    clock_t t1=clock(),t2;
     int t;
     cin>>t;
