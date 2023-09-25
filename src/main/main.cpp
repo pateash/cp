@@ -78,9 +78,13 @@ private:
 //testing functions
 template <typename T> void show_2d(T container){
     for(auto it=container.begin();it!=container.end();it++){
+        int s = it->size();
         for(auto it2=it->begin();it2!=it->end();it2++)
-            cout<<*it2<<" ";
-        cout<<endl;
+        {
+             cout<<*it2<< " ";
+             if(it2==(it->begin()+s-1)) // only do at last line
+                 cout<<endl;
+        }
     }
     cout<<endl;
 }
