@@ -33,6 +33,7 @@
 #define vl vector<ll>
 #define ii pair<int,int>
 #define vii vector<ii>
+#define vvi vector<vector<int>>
 #define vvii vector<vector<ii>> // could be used for graph adjacency list
 
 //function and loops
