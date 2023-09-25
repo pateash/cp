@@ -51,3 +51,7 @@ Resources/
 *.out
 *.app
 
+# temp files
+main*/
+# executable file
+main
