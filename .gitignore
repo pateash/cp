@@ -52,6 +52,7 @@ Resources/
 *.app
 
 # temp files
-main*/
+#main.d*/
 # executable file
-main
+.DS_Store
+!main/live/*

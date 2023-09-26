@@ -4,26 +4,12 @@ project(code)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 set(SOURCE_FILES
-        src/main/main.cpp
+        src/main/*.cpp
 #        src/main/main_fastio.cpp
         src/main/leetcode.cpp
         src/main/template.cpp
-        src/main/libs/CommonLibs.h
-        src/main/libs/MathsUtils.h
-        src/main/libs/Primes.h
-        src/main/libs/UnionFind.h
-        src/main/libs/SegmentTree.h
-        src/main/libs/SegmentTreeLazy.h
-        src/main/libs/FenwickTree.h
-        src/main/libs/ModArithmetic.h
-        src/main/libs/Sorting.h
-        src/main/libs/BinarySearchTree.h
-        src/main/libs/StringUtils.h
-        src/main/libs/BitsUtils.h
-        src/main/libs/graph/GraphTraversal.h
-        src/main/libs/graph/GraphTypes.h
-        src/main/libs/Stack.h
-        src/main/libs/BinarySearchUtils.h
+        src/main/libs/*.h
+        src/main/live/*.cpp
         )
 
 add_executable(code ${SOURCE_FILES})
