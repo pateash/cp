@@ -51,9 +51,9 @@ using namespace std;
 
 
 /****** Template Debugs *********/
-#define DEBUG(a) std::clog<<#a<<" : "<<a<<std::endl;
+#define debug(a) std::cerr<<#a<<" : "<<a<<std::endl;
 
-#define DEBUGN(args...)     (Debugger()) , args
+#define debugn(args...)     (Debugger()) , args
 class Debugger
 {
 public:
@@ -141,34 +141,39 @@ void test_working(){
 }
 
 void solve(){
-
-    int n,k;
-    cin>>n>>k;
-
-    int x;
-    bool found=false;
-    rep(n) {
-        cin>>x;
-//        DEBUG(x);
-        if(x==k)
-        {
-            found=true;
-        }
-    }
-    if(found)
-            puts("YES");
-    else
-   puts("NO");
+	string s; 
+	cin>>s;
+	int ans=-1;
+	for(int i=0;i<n;i++){
+		if(s[i]=='A'){
+			if(i<n && s[i+1]=='B'){
+				if(i<n & s[i+2]=='C'){
+					ans=i;
+					break;
+				}
+			}
+		}
+	
+	}
+	return ans;
 }
-
 int main(int argc, char *argv[]) {
 
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 
 #ifndef ONLINE_JUDGE
-//    pass the path to resources in command line args eg. '/Users/ashish/Desktop/code/src/resources/'
-    string curdir = argv[1];
+    string curdir = "";
+    if(argc <= 1) // no argument is passed
+    {
+        string default_path="/Users/ashishpatel/pateash/cp/src/resources/";
+        cout<<"WARN: Resources in command line args not passed"<<endl;
+        cout<<"Using default: "<< default_path<<endl;
+        curdir = default_path;
+    }
+    else
+        curdir = argv[1];
+
     if (
             freopen(string(curdir + "in.txt").c_str(), "r", stdin)
             &&
@@ -184,10 +189,9 @@ int main(int argc, char *argv[]) {
 //    clock_t t1=clock(),t2;
     int t;
     cin>>t;
-//    DEBUG(t)
-    while(t--){
+//    while(t--){
         solve();
-    }
+ //   }
 //    t2=clock();
     //   cout<<endl<<"time is "<<(t2-t1)/(1.0*CLOCKS_PER_SEC)<<" seconds"<<endl;
     return 0;

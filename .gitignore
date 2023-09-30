@@ -51,8 +51,9 @@ Resources/
 *.out
 *.app
 
-# temp files
-#main.d*/
 # executable file
 .DS_Store
-!main/live/*
+*.dSYM/
+
+# files without any extension ( exectutable files ) for cpp
+[!.]*
