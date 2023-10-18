@@ -51,9 +51,11 @@ using namespace std;
 
 
 /****** Template Debugs *********/
-#define debug(a) std::cerr<<#a<<" : "<<a<<std::endl;
+#define debug cerr
+#define DEBUG(a) if(DEBUG_FLAG) debug<<#a<<" : "<<a<<std::endl
+#define DEBUGN(args...)     (Debugger()) , args
+bool DEBUG_FLAG = true;
 
-#define debugn(args...)     (Debugger()) , args
 class Debugger
 {
 public:
@@ -62,13 +64,14 @@ public:
 
     template<typename ObjectType> Debugger& operator , (const ObjectType& v)
     {
+        if(!DEBUG_FLAG) return *this;
         if(!first)
-            std:cerr << separator;
-        std::cerr << v;
+            debug << separator;
+        debug << v;
         first = false;
         return *this;
     }
-    ~Debugger() {  std:cerr << endl;}
+    ~Debugger() {  if(DEBUG_FLAG) debug << endl;}
 
 private:
     bool first;
@@ -185,8 +188,10 @@ int main(int argc, char *argv[]) {
 //    clock_t t1=clock(),t2;
     int t;
     cin>>t;
-    while(t--){
+    for(int i=0;i<t;i++){
+        if(DEBUG_FLAG) debug<<"case: #"<<i+1<<endl;
         solve();
+        if(DEBUG_FLAG) debug<<"--------------------\n"<<endl;
     }
 //    t2=clock();
     //   cout<<endl<<"time is "<<(t2-t1)/(1.0*CLOCKS_PER_SEC)<<" seconds"<<endl;
