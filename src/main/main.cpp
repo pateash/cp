@@ -52,9 +52,9 @@ using namespace std;
 
 /****** Template Debugs *********/
 #define debug cerr
-#define DEBUG(a) if(DEBUG_FLAG) debug<<#a<<" : "<<a<<std::endl
-#define DEBUGN(args...)     (Debugger()) , args
-bool DEBUG_FLAG = true;
+#define DEBUG(a) if(DEBUG_FLAG) debug<<#a<<" : "<<a<<std::endl;
+#define DEBUGN(args...)     (Debugger()) , args;
+bool DEBUG_FLAG = false;
 
 class Debugger
 {
@@ -162,6 +162,7 @@ int main(int argc, char *argv[]) {
     cin.tie(nullptr);
 
 #ifndef ONLINE_JUDGE
+    DEBUG_FLAG=true;
     string curdir = "";
     if(argc <= 1) // no argument is passed
     {
