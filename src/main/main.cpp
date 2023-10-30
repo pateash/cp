@@ -51,9 +51,9 @@ using namespace std;
 
 
 /****** Template Debugs *********/
-#define debug cerr
-#define DEBUG(a) if(DEBUG_FLAG) debug<<#a<<" : "<<a<<std::endl;
-#define DEBUGN(args...)     (Debugger()) , args;
+#define dout cerr
+#define debug(a) if(DEBUG_FLAG) dout<<#a<<" : "<<a<<std::endl;
+#define debugn(args...)     (Debugger()) , args;
 bool DEBUG_FLAG = false;
 
 class Debugger
@@ -66,12 +66,12 @@ public:
     {
         if(!DEBUG_FLAG) return *this;
         if(!first)
-            debug << separator;
-        debug << v;
+            dout << separator;
+        dout << v;
         first = false;
         return *this;
     }
-    ~Debugger() {  if(DEBUG_FLAG) debug << endl;}
+    ~Debugger() {  if(DEBUG_FLAG) dout << endl;}
 
 private:
     bool first;
@@ -190,9 +190,9 @@ int main(int argc, char *argv[]) {
     int t;
     cin>>t;
     for(int i=0;i<t;i++){
-        if(DEBUG_FLAG) debug<<"case: #"<<i+1<<endl;
+        if(DEBUG_FLAG) dout<<"case: #"<<i+1<<endl;
         solve();
-        if(DEBUG_FLAG) debug<<"--------------------\n"<<endl;
+        if(DEBUG_FLAG) dout<<"--------------------\n"<<endl;
     }
 //    t2=clock();
     //   cout<<endl<<"time is "<<(t2-t1)/(1.0*CLOCKS_PER_SEC)<<" seconds"<<endl;
