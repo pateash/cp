@@ -19,7 +19,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup compiler
-      run: |
+      run: | 
+             sudo apt update 
              sudo apt install ${{ matrix.cpp-version }}
       shell: bash
     - name: cmake
