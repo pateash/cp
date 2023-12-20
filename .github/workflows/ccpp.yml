@@ -7,21 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-#        os: [ubuntu-16.04, ubuntu-18.04]
-#        os: [ubuntu-18.04]
-#        cpp-version: [gcc-4.8, gcc-6, gcc-7, gcc-8, gcc-9]
-        cpp-version: [gcc-4.8, gcc-6, gcc-7]
-        # gcc 4.8 -> c++11 ( default support )
-        # gcc 6.1 -> c++ 14 ( default support )
-        # gcc 7 -> c++ 17
-        # gcc 8 -> c++ 2a (with  -std=c++2a )
-        # gcc 9 -> c++ 2a ( default support )
+        cpp-version: [9, 7] # Specify versions that are likely available in ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Setup compiler
       run: | 
              sudo apt update 
-             sudo apt install ${{ matrix.cpp-version }}
+             sudo apt install gcc-${{ matrix.cpp-version }} g++-${{ matrix.cpp-version }}
+             sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-${{ matrix.cpp-version }} 100
+             sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-${{ matrix.cpp-version }} 100
       shell: bash
     - name: cmake
       run: cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/home/runner/work/cp/cp"
