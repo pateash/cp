@@ -52,7 +52,7 @@ void testSorting()
     vi ans = { 1, 5, 7, 8, 9,10};
 
     for (int i = 0; i < v.size(); ++i) {
-        cout<<v[i]<<" ";
+//        cout<<v[i]<<" ";
         assert(v[i]==ans[i]);
     }
 }

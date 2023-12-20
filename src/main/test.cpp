@@ -23,16 +23,38 @@
 using namespace std;
 
 void runTests(){
+    puts("testMathUtils");
     testMathUtils();
+
+    puts("testArrayUtils");
     testArrayUtils();
+
+    puts("testBinarySearchUtils");
     testBinarySearchUtils();
+
+    puts("testBitsUtils");
     testBitsUtils();
+
+    puts("testGenerateUtils");
     testGenerateUtils();
+
+    puts("testLinkedList");
     testLinkedList();
+
+    puts("testSegmentTree");
     testSegmentTree();
+
+    puts("testSorting");
     testSorting();
+
+    puts("testGraphTypes");
     testGraphTypes();
+
+    puts("testGraphTraversals");
     testGraphTraversals();
+
+    puts("testStringUtils");
+    testStringUtils();
 }
 
 int main(){

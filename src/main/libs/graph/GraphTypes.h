@@ -19,7 +19,7 @@ void testGraphTypes() {
     //   for each line: a-b of edge(a,b) and weight
 
     if (
-            freopen("graph_input.txt", "r", stdin));
+            freopen("src/resources/libs/graph_input.txt", "r", stdin));
     else {
         cout << "ERROR: " << strerror(errno) << endl;
         exit(0);

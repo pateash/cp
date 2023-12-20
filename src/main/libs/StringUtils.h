@@ -59,7 +59,31 @@ public:
          cout<<"following permutations are there for: "<<s<<endl;
           generatePermutationUtils(0,s);
         }
+
+        /* code for encoding and decoding problem  -
+         * https://onedrive.live.com/view.aspx?resid=9B1BD26B02F2442D%21153&id=documents&wd=target%28LeetCode%20Problems%2FArray%20and%20Hashing.one%7C5F798AC7-7179-E64C-84A2-FB1CD88468EC%2FEncode%20and%20Decode%20Strings%20-%20H%7C01B8C7E8-6458-5944-A3A5-B1E1939AFA1C%2F%29
+onenote:https://d.docs.live.net/9b1bd26b02f2442d/Documents/notes/Competetive%20Programming%20Notes/LeetCode%20Problems/Array%20and%20Hashing.one#Encode%20and%20Decode%20Strings%20-%20H&section-id={5F798AC7-7179-E64C-84A2-FB1CD88468EC}&page-id={01B8C7E8-6458-5944-A3A5-B1E1939AFA1C}&end
+        */
+        static string encode(vector<string> &s){
+
+        }
+
+        static vector<string> decode(string &s){
+
+        }
 };
+
+void testStringUtils()
+{
+//    assert(false);
+//    assert(
+//            ArrayUtils<int>::findSumOfAbsoluteDifferenceOfAllPairs({1,2,3,4,5})
+//            == 20);
+//    assert(
+//            ArrayUtils<int>::findSumOfAbsoluteDifferenceOfAllPairs({2,3,5,7})
+//            == 17);
+    cout<<"------------"<<endl;
+}
 
 /*
  int main()
