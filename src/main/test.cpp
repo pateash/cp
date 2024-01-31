@@ -6,7 +6,8 @@
 #include "libs/CommonLibs.h"
 #include "libs/FenwickTree.h"
 #include "libs/LinkedList.h"
-#include "libs/MathsUtils.h"
+#include "libs/maths/MathsUtils.h"
+#include "libs/maths/GcdLcmUtils.h"
 #include "libs/ModArithmetic.h"
 #include "libs/Primes.h"
 #include "libs/SegmentTree.h"
@@ -25,6 +26,9 @@ using namespace std;
 void runTests(){
     puts("testMathUtils");
     testMathUtils();
+
+    puts("testGcdLcmUtils");
+    testGcdLcmUtils();
 
     puts("testArrayUtils");
     testArrayUtils();
