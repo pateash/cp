@@ -1,5 +1,10 @@
 # Created by https://www.gitignore.io/api/codeblocks
-
+# Ignore everything...
+*
+# ...except for directories
+!*/
+# ...and all files with an extension
+!*.*
 # for clion
 cmake*
 
@@ -55,5 +60,4 @@ Resources/
 .DS_Store
 *.dSYM/
 
-# files without any extension ( exectutable files ) for cpp
-[!.]*
+cmake-build-debug/
