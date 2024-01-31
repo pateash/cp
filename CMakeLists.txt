@@ -4,8 +4,8 @@ project(code)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 file(GLOB SOURCE_FILES
-        "src/main/*.cpp"
-        "src/main/live/*.cpp"
+        "src/main/main.cpp"
+#        "src/main/live/*.cpp"
         )
 
 add_executable(code ${SOURCE_FILES})
