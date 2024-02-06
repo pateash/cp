@@ -5,10 +5,14 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 file(GLOB SOURCE_FILES
         "src/main/main.cpp"
-#        "src/main/live/*.cpp"
+        )
+
+file(GLOB LIVE_SOURCE_FILES
+                "src/main/live/*.cpp"
         )
 
 add_executable(code ${SOURCE_FILES})
+add_executable(live ${LIVE_SOURCE_FILES})
 
 file(GLOB TEST_SOURCE_FILES
         "src/main/test.cpp"
