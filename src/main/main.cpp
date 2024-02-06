@@ -51,29 +51,36 @@ using namespace std;
 
 
 /****** Template Debugs *********/
-#ifndef DEBUG_FLAG
-#define DEBUG_FLAG  false
+#ifndef ONLINE_JUDGE
+    #ifndef DEBUG_FLAG
+    #define DEBUG_FLAG  true
+    #endif
+#else
+    #ifndef DEBUG_FLAG
+    #define DEBUG_FLAG  false
+    #endif
 #endif
+
 #define dout cerr
 #define debug(a) if(DEBUG_FLAG) dout<<#a<<" : "<<a<<std::endl;
 #define debugn(args...)     (Debugger()) , args;
 
-class Debugger
-{
+class Debugger {
 public:
-    Debugger(const std::string& _separator = " - ") :
-            first(true), separator(_separator){}
+    Debugger(const std::string &_separator = " - ") :
+            first(true), separator(_separator) {}
 
-    template<typename ObjectType> Debugger& operator , (const ObjectType& v)
-    {
-        if(!DEBUG_FLAG) return *this;
-        if(!first)
+    template<typename ObjectType>
+    Debugger &operator,(const ObjectType &v) {
+        if (!DEBUG_FLAG) return *this;
+        if (!first)
             dout << separator;
         dout << v;
         first = false;
         return *this;
     }
-    ~Debugger() {  if(DEBUG_FLAG) dout << endl;}
+
+    ~Debugger() { if (DEBUG_FLAG) dout << endl; }
 
 private:
     bool first;
@@ -81,74 +88,86 @@ private:
 };
 
 //testing functions
-template <typename T> void show_2d(T container){
-    for(auto it=container.begin();it!=container.end();it++){
+template<typename T>
+void show_2d(T container) {
+    for (auto it = container.begin(); it != container.end(); it++) {
         int s = it->size();
-        for(auto it2=it->begin();it2!=it->end();it2++)
-        {
-             cout<<*it2<< " ";
-             if(it2==(it->begin()+s-1)) // only do at last line
-                 cout<<endl;
+        for (auto it2 = it->begin(); it2 != it->end(); it2++) {
+            cout << *it2 << " ";
+            if (it2 == (it->begin() + s - 1)) // only do at last line
+                cout << endl;
         }
     }
-    cout<<endl;
-}
-template <typename T> void show_pair1d(T container){
-    for(auto it=container.begin();it!=container.end();it++){
-        cout<<"["<<it->first<<","<<it->second<<"]";
-        cout<<endl;
-    }
-    cout<<endl;
-}
-template <typename T> void show_pair2d(T container){
-    for(auto it=container.begin();it!=container.end();it++){
-        for(auto it2=it->begin();it2!=it->end();it2++)
-            cout<<"["<<it2->first<<","<<it2->second<<"],";
-        cout<<endl;
-    }
-    cout<<endl;
+    cout << endl;
 }
 
-template <typename T,typename R> void show_pair(pair<T,R> p){
-    cout<<p.first<<"-> "<<p.second<<endl;
-}
-template <typename T> void show_1d(T &container){
-    cout<<"[";
-    for(auto it=container.begin();it!=container.end();it++){
-        cout<<*it<<", ";
+template<typename T>
+void show_pair1d(T container) {
+    for (auto it = container.begin(); it != container.end(); it++) {
+        cout << "[" << it->first << "," << it->second << "]";
+        cout << endl;
     }
-    cout<<"]"<<endl;
+    cout << endl;
 }
-template <typename  T> void show_arr(T arr[],int size){
-    cout<<"content in array is here"<<endl;
+
+template<typename T>
+void show_pair2d(T container) {
+    for (auto it = container.begin(); it != container.end(); it++) {
+        for (auto it2 = it->begin(); it2 != it->end(); it2++)
+            cout << "[" << it2->first << "," << it2->second << "],";
+        cout << endl;
+    }
+    cout << endl;
+}
+
+template<typename T, typename R>
+void show_pair(pair<T, R> p) {
+    cout << p.first << "-> " << p.second << endl;
+}
+
+template<typename T>
+void show_1d(T &container) {
+    cout << "[";
+    for (auto it = container.begin(); it != container.end(); it++) {
+        cout << *it << ", ";
+    }
+    cout << "]" << endl;
+}
+
+template<typename T>
+void show_arr(T arr[], int size) {
+    cout << "content in array is here" << endl;
     for (int i = 0; i < size; ++i)
-        cout<<arr[i]<<" ";
-    cout<<endl;
+        cout << arr[i] << " ";
+    cout << endl;
 }
-template<typename T> void show_graph(T AdjList){
-    cout<<"-----------"<<endl;
-    cout<<"showing graph"<<endl;
-    int i=0;
-    for(auto v: AdjList){
-        cout<<i++;
-        for(auto e:v){
-            cout<<"->"<<"["<<e.first<<","<<e.second<<"]";
+
+template<typename T>
+void show_graph(T AdjList) {
+    cout << "-----------" << endl;
+    cout << "showing graph" << endl;
+    int i = 0;
+    for (auto v: AdjList) {
+        cout << i++;
+        for (auto e: v) {
+            cout << "->" << "[" << e.first << "," << e.second << "]";
         }
-        cout<<endl;
+        cout << endl;
     }
-    cout<<"-----------"<<endl;
+    cout << "-----------" << endl;
 }
-void test_working(){
+
+void test_working() {
     string string1;
-    cin>>string1;
-    cout<<"its working and \nfirst line input:"<<string1;
+    cin >> string1;
+    cout << "its working and \nfirst line input:" << string1;
     exit(EXIT_SUCCESS);
 }
 
 void solve(){
 
     int n;
-    cin>>n;
+    cin >> n;
 
     vi v(n);
     rep(n) cin>>v[i];
@@ -164,16 +183,14 @@ int main(int argc, char *argv[]) {
     cin.tie(nullptr);
 
 #ifndef ONLINE_JUDGE
-    #define DEBUG_FLAG  true
     string curdir = "";
-    if(argc <= 1) // no argument is passed
+    if (argc <= 1) // no argument is passed
     {
-        string default_path="/Users/ashishpatel/pateash/cp/src/resources/";
-        cout<<"WARN: Resources in command line args not passed"<<endl;
-        cout<<"Using default: "<< default_path<<endl;
+        string default_path = "/Users/ashishpatel/pateash/cp/src/resources/";
+        cout << "WARN: Resources in command line args not passed" << endl;
+        cout << "Using default: " << default_path << endl;
         curdir = default_path;
-    }
-    else
+    } else
         curdir = argv[1];
 
     if (
@@ -190,11 +207,11 @@ int main(int argc, char *argv[]) {
 //    test_working();
 //    clock_t t1=clock(),t2;
     int t;
-    cin>>t;
-    for(int i=0;i<t;i++){
-        if(DEBUG_FLAG) dout<<"case: #"<<i+1<<endl;
+    cin >> t;
+    for (int i = 0; i < t; i++) {
+        if (DEBUG_FLAG) dout << "case: #" << i + 1 << endl;
         solve();
-        if(DEBUG_FLAG) dout<<"--------------------\n"<<endl;
+        if (DEBUG_FLAG) dout << "--------------------\n" << endl;
     }
 //    t2=clock();
     //   cout<<endl<<"time is "<<(t2-t1)/(1.0*CLOCKS_PER_SEC)<<" seconds"<<endl;
