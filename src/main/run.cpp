@@ -19,7 +19,7 @@ int main() {
     //   for each line: a-b of edge(a,b) and weight
 
     if (
-            freopen("graph_input.txt", "r", stdin));
+            freopen("/Users/ashishpatel/pateash/cp/src/resources/libs/graph_input.txt", "r", stdin));
     else {
         cout << "ERROR: " << strerror(errno) << endl;
         exit(0);

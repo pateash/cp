@@ -27,6 +27,9 @@ set(RUN_SOURCE_FILES
         )
 add_executable(run ${RUN_SOURCE_FILES})
 
+# Set the output directory for executables
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/executables)
+
 # resources file copy , only use for testing (can't use for main as we want to monitor them )
 FILE(COPY src/resources/libs/graph_input.txt DESTINATION "${CMAKE_BINARY_DIR}")
 FILE(COPY src/resources/libs/graph_input_adjlist.txt DESTINATION "${CMAKE_BINARY_DIR}")
