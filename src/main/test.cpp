@@ -15,7 +15,8 @@
 #include "libs/Sorting.h"
 #include "libs/Stack.h"
 #include "libs/Stack2.h"
-#include "libs/StringUtils.h"
+#include "libs/string/StringUtils.h"
+#include "libs/string/StringSearch.h"
 #include "libs/UnionFind.h"
 #include "libs/GenerateUtils.h"
 #include "libs/graph/GraphTypes.h"
@@ -59,6 +60,9 @@ void runTests(){
 
     puts("testStringUtils");
     testStringUtils();
+
+    puts("testStringSearch");
+    testStringSearch();
 }
 
 int main(){

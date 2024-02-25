@@ -1,7 +1,7 @@
 #ifndef SAMPLE_STRING_UTILS_H
 #define SAMPLE_STRING_UTILS_H
 
-#include "CommonLibs.h"
+#include "../CommonLibs.h"
 
 /*works for vectors etc. also just change type*/
 class StringUtils{
@@ -22,8 +22,8 @@ public:
     }
 
 public:
-     static void generateSubStrings(string &s){
-
+     static int generateSubStrings(string &s){
+        int count=0;
         /* total possible substring: n(n+1)/2 , O(n^2) */
          cout<<"following substrings are there for: "<<s<<endl;
          for (int i = 0; i < s.size(); ++i) {
@@ -31,14 +31,16 @@ public:
              for (int j = i; j < s.size() ; ++j) {
                  substr+=s[j];
                  cout<<substr<<endl;
+                 count++;
              }
          }
+         return count;
     }
 
-     static void generateSubSequences(string &s){
+     static int generateSubSequences(string &s){
         /* total possible substring: 2^n ( one is empty) , O(2^n*n) */
          cout<<"following subSequences are there for: "<<s<<endl;
-
+         int count =0;
          int n=pow(2,s.size());
 
          for (int i = 0; i < n; ++i) { // all subsequences
@@ -48,8 +50,10 @@ public:
                  if(i & (1<<j))
                      substr+=s[j];
              }
+             count++;
              cout<<substr<<endl;
          }
+         return count;
     }
 
      static void generateAllPermutations(string &s){
@@ -108,47 +112,12 @@ void testStringUtils()
     for(int i=0;i<str.size();i++)
         assert(str[i]==decodedStrs[i]);
 
-    cout<<"------------"<<endl;
-}
-
-/*
- int main()
-{
+    // Substrings
     string s="abc";
-
-    StringUtils::generateSubStrings(s); // 10
+    assert(StringUtils::generateSubStrings(s)==6);
     cout<<"------------"<<endl;
 
-    StringUtils::generateSubSequences(s);
-    s="abc";
-    StringUtils::generateAllPermutations(s);
+    assert(StringUtils::generateSubSequences(s)==8);
+    StringUtils::generateAllPermutations(s); // 6
 }
-*/
-/* OUTPUT
-/Users/ashish/Desktop/code/cmake-build-debug/Sample
-following substrings are there for: abc
-a
-ab
-abc
-b
-bc
-c
-------------
-following subSequences are there for: abc
-
-a
-b
-ab
-c
-ac
-bc
-abc
-following permutations are there for: abc
-abc
-acb
-bac
-bca
-cba
-cab
- */
 #endif

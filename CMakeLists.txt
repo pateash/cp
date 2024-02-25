@@ -18,6 +18,7 @@ file(GLOB TEST_SOURCE_FILES
         "src/main/test.cpp"
         "src/main/libs/*.h"
         "src/main/libs/maths/*.h"
+        "src/main/libs/string/*.h"
         )
 
 add_executable(test ${TEST_SOURCE_FILES})
