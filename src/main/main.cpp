@@ -17,6 +17,7 @@
 #include <limits>
 #include<vector>
 #include<list>
+#include<queue>
 #include<map>
 #include<set>
 #include<stack>
@@ -30,6 +31,7 @@
 #define llu long long unsigned int
 //container
 #define vi vector<int>
+#define vb vector<bool>
 #define vl vector<ll>
 #define ii pair<int,int>
 #define vii vector<ii>
