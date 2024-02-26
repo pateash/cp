@@ -22,7 +22,7 @@ public:
             }
             return ans;
         }
-        static void kmpPreprocess(string&T, string&P, vector<int>&b){
+        static void kmpPreprocess(string&P, vector<int>&b){
             int m=P.size();
             int i=0,j=-1;
             b[0]=-1; // setting initial value as -1
@@ -30,6 +30,7 @@ public:
                 while(j>=0 && P[i]!=P[j]) // checking j>=0, as j=-1 initially
                     j=b[j]; // resetting j in case of different value using b[]
                 i++;j++; // if same increment both
+                // IMP: this might overflow if b.size()==m, so always give some extra size to b;
                 b[i]=j; // set i index, keep incrementing if we find more same values
             }
         }
@@ -41,14 +42,15 @@ public:
             int i=0,j=0;
             vector<int>ans;
             while(i<n){
-                while(j>=0 && T[i]!=P[j]) j=b[j]; // resetting j using b[], same as above
+                while(j>=0 && T[i]!=P[j]) j=b[j]; // resetting j using b[], same as above using T[i], P[j]
                 i++;j++;
                 if(j==m) { // if we found the full match
                     cout<< "found match at: "<<i-j<< endl;
                     cout<<T.substr(i-j,m)<<endl;
                     ans.push_back(i-j);
                     // start again for next match
-                    j=b[j];
+                    // always do j=b[j] in search as we can't do b[i] as it might overflow.
+                    j=b[j]; // resetting to previous lps
                 }
             }
             return ans;
@@ -70,7 +72,7 @@ void testStringSearch()
 
     // KMP
     cout<<"KMP Searching Algorithm\n================="<<endl;
-    vector<int>b(P.size());
+    vector<int>b(P.size()+1); // to avoid overflow in preprocess
     StringSearch::kmpPreprocess(T,P, b);
     show_1d(b);
     auto kmp_ans=StringSearch::kmpSearch(T,P, b);
