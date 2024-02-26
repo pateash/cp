@@ -1,5 +1,10 @@
 # Created by https://www.gitignore.io/api/codeblocks
 # Ignore everything...
+*
+# ...except for directories
+!*/
+# ...and all files with an extension
+!*.*
 # for clion
 cmake*
 
