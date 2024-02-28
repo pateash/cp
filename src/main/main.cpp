@@ -95,68 +95,68 @@ void show_2d(T container) {
     for (auto it = container.begin(); it != container.end(); it++) {
         int s = it->size();
         for (auto it2 = it->begin(); it2 != it->end(); it2++) {
-            cout << *it2 << " ";
+            dout << *it2 << " ";
             if (it2 == (it->begin() + s - 1)) // only do at last line
-                cout << endl;
+                dout << endl;
         }
     }
-    cout << endl;
+    dout << endl;
 }
 
 template<typename T>
 void show_pair1d(T container) {
     for (auto it = container.begin(); it != container.end(); it++) {
-        cout << "[" << it->first << "," << it->second << "]";
-        cout << endl;
+        dout << "[" << it->first << "," << it->second << "]";
+        dout << endl;
     }
-    cout << endl;
+    dout << endl;
 }
 
 template<typename T>
 void show_pair2d(T container) {
     for (auto it = container.begin(); it != container.end(); it++) {
         for (auto it2 = it->begin(); it2 != it->end(); it2++)
-            cout << "[" << it2->first << "," << it2->second << "],";
-        cout << endl;
+            dout << "[" << it2->first << "," << it2->second << "],";
+        dout << endl;
     }
-    cout << endl;
+    dout << endl;
 }
 
 template<typename T, typename R>
 void show_pair(pair<T, R> p) {
-    cout << p.first << "-> " << p.second << endl;
+    dout << p.first << "-> " << p.second << endl;
 }
 
 template<typename T>
 void show_1d(T &container) {
-    cout << "[";
+    dout << "[";
     for (auto it = container.begin(); it != container.end(); it++) {
-        cout << *it << ", ";
+        dout << *it << ", ";
     }
-    cout << "]" << endl;
+    dout << "]" << endl;
 }
 
 template<typename T>
 void show_arr(T arr[], int size) {
-    cout << "content in array is here" << endl;
+    dout << "content in array is here" << endl;
     for (int i = 0; i < size; ++i)
-        cout << arr[i] << " ";
-    cout << endl;
+        dout << arr[i] << " ";
+    dout << endl;
 }
 
 template<typename T>
 void show_graph(T AdjList) {
-    cout << "-----------" << endl;
-    cout << "showing graph" << endl;
+    dout << "-----------" << endl;
+    dout << "showing graph" << endl;
     int i = 0;
     for (auto v: AdjList) {
-        cout << i++;
+        dout << i++;
         for (auto e: v) {
-            cout << "->" << "[" << e.first << "," << e.second << "]";
+            dout << "->" << "[" << e.first << "," << e.second << "]";
         }
-        cout << endl;
+        dout << endl;
     }
-    cout << "-----------" << endl;
+    dout << "-----------" << endl;
 }
 
 void test_working() {
