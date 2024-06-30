@@ -73,7 +73,7 @@ void testStringSearch()
     // KMP
     cout<<"KMP Searching Algorithm\n================="<<endl;
     vector<int>b(P.size()+1); // to avoid overflow in preprocess
-    StringSearch::kmpPreprocess(T,P, b);
+    StringSearch::kmpPreprocess(P, b);
     show_1d(b);
     auto kmp_ans=StringSearch::kmpSearch(T,P, b);
     assert(kmp_ans.size()==2);

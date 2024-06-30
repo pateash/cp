@@ -21,12 +21,16 @@
 #include "libs/GenerateUtils.h"
 #include "libs/graph/GraphTypes.h"
 #include "libs/graph/GraphTraversal.h"
+#include "libs/maths/Calculator.h"
 
 using namespace std;
 
 void runTests(){
     puts("testMathUtils");
     testMathUtils();
+
+    puts("testCalculatorUtils");
+    testCalculatorUtils();
 
     puts("testGcdLcmUtils");
     testGcdLcmUtils();
