@@ -63,7 +63,7 @@ int evaluatePostfix(const vector<string>& postfix) {
             values.push(stoi(token)); // Convert string to integer and push onto stack
         } else { // Operator
             // as soon as you find operator, pop 2 and evaluate
-            int right = values.top(); values.pop();
+            int right = values.top(); values.pop(); // first value is right
             int left = values.top(); values.pop();
             switch (token[0]) {
                 case '+': values.push(left + right); break;
